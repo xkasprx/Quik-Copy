@@ -13,7 +13,6 @@
 		try{
 			closeDialog();
 			let allSections = JSON.parse(localStorage.allSections);
-			let newSectionName = sectionNameInput.value;
 			JSON.parse(e.target.result).forEach(x =>{
 				let newName = JSON.parse(x).sectionName;
 				let newButtonsList = JSON.stringify(JSON.parse(x).sectionButtons);

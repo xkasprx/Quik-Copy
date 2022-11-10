@@ -1,4 +1,3 @@
-/* Root */
 :root{
 	--main-bg-color: #25729E;
 	--main-sidenav-color: #252525;
@@ -16,7 +15,6 @@
 	outline: var(--color1);
 }
 
-/* Elements */
 body, html{
 	margin: 0;
 	padding: 0;
@@ -106,7 +104,6 @@ hr{
 	clear: both;
 }
 
-/* Class */
 .addButtonButton{
 	background-color: var(--color1);
 	color: var(--main-bg-color);
@@ -177,12 +174,17 @@ hr{
 	text-align: center;
 }
 
-/* ID */
 #addfavbutton{
 	z-index: 50;
 	background-color: var(--color1);
 	color: var(--main-bg-color);
 	margin: auto;
+}
+
+#backend{
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
 }
 
 #contextmenu{
@@ -329,6 +331,22 @@ hr{
 	visibility: hidden !important;
 }
 
+#icon{
+	height: 50px;
+	display: block;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-webkit-transition: all 1s ease;
+}
+
+#icon:hover{
+	filter: grayscale(0%);
+	filter: var(--color7);
+	-webkit-filter: grayscale(0%);
+	filter: none;
+	transition: 1s ease;
+}
+
 #midcontainer{
 	margin-bottom: 50px;
 }
@@ -460,7 +478,6 @@ hr{
 	z-index: 2;
 }
 
-/* Bundles */
 #createsectiondialog,
 #createbuttondialog,
 #editbuttondialog,
@@ -505,7 +522,6 @@ hr{
 	display: none;
 }
 
-/* Keyframes */
 @-webkit-keyframes fadein{
 	from{
 		bottom: 0;
