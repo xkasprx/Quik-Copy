@@ -672,6 +672,7 @@ function isMobile(){
         midEmpty.style.display = `none`;
         sideNav.style.display = `none`;
         favNav.style.display = `none`;
-        midContainer.innerHTML = `<h1>This site is not desiged to be functional from a mobile device, please return using a desktop computer to use this tool.</hr>`
+        midContainer.style.paddingTop = `25%`
+        midContainer.innerHTML = `<h1>This site is not desiged to be functional from a mobile device, please return using a desktop computer to use this tool.</h1>`
     }
 };
