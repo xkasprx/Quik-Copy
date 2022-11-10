@@ -18,6 +18,7 @@ let editPasteValue = document.getElementById(`editPasteValue`);
 let exportDialog = document.getElementById(`exportdialog`);
 let fav = document.getElementById(`fav`);
 let favDel = document.getElementById(`favdel`);
+let favNav = document.getElementById(`favnav`);
 let favNavCells = document.getElementById(`favnavcells`);
 let favNavEmpty = document.getElementById(`favnavempty`);
 let favNavDropdown = document.getElementById(`favnavdropdown`);
@@ -32,6 +33,7 @@ let reorderSectionsDialog = document.getElementById(`reorderSectionsDialog`);
 let sectionNameInput = document.getElementById(`sectionNameInput`);
 let settingsDialog = document.getElementById(`settingsdialog`);
 let settingsButton = document.getElementById(`settings`);
+let sideNav = document.getElementById(`sidenav`);
 let sideNavCells = document.getElementById(`sidenavcells`);
 let themeButton = document.getElementById(`themebutton`);
 let version = document.getElementById(`version`);
@@ -637,6 +639,7 @@ function toggleTheme(){
 
 window.onload = function(){
     this.handleBranding();
+    this.isMobile();
     if(localStorage.allSections && localStorage.allSections != `[]`){
         this.loadSections();
         this.loadSideNav();
@@ -662,4 +665,13 @@ window.onload = function(){
 
 window.onresize = function(e){
     this.handleBranding();
+};
+
+function isMobile(){
+    if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini/.test(navigator.userAgent)){
+        midEmpty.style.display = `none`;
+        sideNav.style.display = `none`;
+        favNav.style.display = `none`;
+        midContainer.innerHTML = `<h1>This site is not desiged to be functional from a mobile device, please return using a desktop computer to use this tool.</hr>`
+    }
 };
