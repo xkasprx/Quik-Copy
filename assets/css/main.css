@@ -187,8 +187,20 @@ hr{
 	bottom: 10px;
 }
 
+#copyright{
+	position: fixed;
+	z-index: 20;
+	width: 12%;
+	left: 0px;
+	bottom: 0px;
+	font-size: x-small;
+	color: var(--color6);
+	text-align: center;
+}
+
+
 #contextmenu{
-	background-color: #000000;
+	background-color: var(--color1);
 }
 
 #createbuttondialog textarea{
