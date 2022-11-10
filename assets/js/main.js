@@ -12,7 +12,7 @@ let buttonNameInput = document.getElementById(`buttonNameInput`);
 let buttonPasteValue = document.getElementById(`buttonPasteValue`);
 let createButtonDialog = document.getElementById(`createbuttondialog`);
 let createSectionDialog = document.getElementById(`createsectiondialog`);
-let editbuttondialog = document.getElementById(`editbuttondialog`);
+let editButtonDialog = document.getElementById(`editbuttondialog`);
 let editNameInput = document.getElementById(`editNameInput`);
 let editPasteValue = document.getElementById(`editPasteValue`);
 let exportDialog = document.getElementById(`exportdialog`);
@@ -27,6 +27,7 @@ let midContainer = document.getElementById(`midcontainer`);
 let midNav = document.getElementById(`midnav`);
 let nav = document.getElementById(`nav`);
 let popup = document.getElementById(`popup`);
+let privacyDialog = document.getElementById(`privacydialog`);
 let reorderSectionsDialog = document.getElementById(`reorderSectionsDialog`);
 let sectionNameInput = document.getElementById(`sectionNameInput`);
 let settingsDialog = document.getElementById(`settingsdialog`);
@@ -91,10 +92,11 @@ function clearAll(){
 function closeDialog(){
     createSectionDialog.close();
     createButtonDialog.close();
+    privacyDialog.close();
     settingsDialog.style.display = `none`;
     importDialog.style.display = `none`;
     exportDialog.style.display = `none`;
-}
+};
 
 function confirmExport(){
     let boxes = document.querySelectorAll(`input[name=section]:checked`);
@@ -120,7 +122,7 @@ function confirmExport(){
     });
     saveText(JSON.stringify(exportjson), `chatToolExport.json`);
     closeDialog();
-}
+};
 
 function confirmSectionReorder(){
     let allSections = JSON.parse(localStorage.allSections);
@@ -302,7 +304,7 @@ function deleteSection(sectionId){
 function disableLightMode(){
     body.classList.remove(`light`);
     localStorage.setItem(`lightMode`, `disabled`);
-}
+};
 
 function editButton(){
     let allSections = JSON.parse(localStorage.allSections);
@@ -319,12 +321,12 @@ function editButton(){
     editNameInput.value = oldButtonName;
     editPasteValue.value = oldButtonValue;
     editSubmitButton.setAttribute('onclick', 'saveButton()');
-}
+};
 
 function enableLightMode(){
     body.classList.add(`light`);
     localStorage.setItem(`lightMode`, `enabled`);
-}
+};
 
 function exportItems(){
     if(!localStorage.allSections || localStorage.allSections != `[]`){
@@ -369,7 +371,7 @@ function exportItems(){
     }else{
         alert(`There are no sections to export!`);
     }
-}
+};
 
 function favCellClicked(buttonId){
     closeDialog();
@@ -458,6 +460,10 @@ function loadFavNav(){
     }
 };
 
+function loadHome(){
+    window.location = `https://dmskaspr.com`;
+};
+
 function loadSections(){
     let allSections = JSON.parse(localStorage.allSections);
 
@@ -542,7 +548,7 @@ function loadSideNav(){
 
 function promptEditButton(){
     closeDialog();
-    editbuttondialog.style.display = 'block';
+    editButtonDialog.style.display = 'block';
 };
 
 function promptNewButton(sectionId){
@@ -561,7 +567,7 @@ function saveText(text, filename){
     a.setAttribute(`href`, `data:text/plain;charset=utf-u,${encodeURIComponent(text)}`);
     a.setAttribute(`download`, filename);
     a.click();
-}
+};
 
 function saveButton(){
     let allSections = JSON.parse(localStorage.allSections);
@@ -589,11 +595,15 @@ function saveButton(){
     closeDialog();
     activeSectionID = -1;
     activeButtonID = -1;
-}
+};
 
 function settingsMenu(){
     closeDialog();
     settingsDialog.style.display = `block`;
+};
+
+function showPrivacy(){
+    privacyDialog.show();
 };
 
 function showSectionReorder(){
@@ -623,7 +633,7 @@ function toggleTheme(){
 
     currentStatus === `disabled` ? enableLightMode() : disableLightMode();
     themeButton.className = currentStatus === `disabled` ? `fas fa-sun` : `fas fa-moon`;
-}
+};
 
 window.onload = function(){
     this.handleBranding();

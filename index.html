@@ -23,7 +23,7 @@
             <h1 id="branding">Quik Copy</h1>
         </span>
         <span class="topbannerbranding">
-            <h2 id="version">Version 3.1.0</h2>
+            <h2 id="version">Version 3.1.2</h2>
         </span>
     </div>
     <div id="sidenav">
@@ -38,9 +38,9 @@
         <button id="createsectionbutton" onclick="promptNewSection()">Create Section</button>
         <div id="copyright">
             <hr>
-            <p><a href="https://dmskaspr.com/#privacy">Privacy Policy</a><a href="https://dmskaspr.com/#agreement">Terms & Conditions</a></p>
+            <p onclick="showPrivacy()">Privacy</p>
             <hr>
-			<p>&copy; 2020 ~ <script>document.write(new Date().getFullYear())</script> DMS Services</p>
+			<span onclick="loadHome()">&copy; 2020 ~ <script>document.write(new Date().getFullYear())</script> DMS Services</span>
 		</div>
     </div>
     <div id="favnav">
@@ -100,6 +100,13 @@
         <br>
         <button class="cancel" onclick="closeDialog()">Cancel</button>
         <button id="editSubmitButton">Submit</button>
+    </dialog>
+    <dialog id="privacydialog">
+        <p>Privacy</p>
+        <hr>
+        <p>This site does not ask for any personally identifiable information. All content displayed on this site is stored locally on your machine.</p>
+        <hr>
+        <button class="cancel" onclick="closeDialog()">Close</button>
     </dialog>
     <dialog id="reorderSectionsDialog">
         <p>Reorder sections from 1 to XYZ</p>

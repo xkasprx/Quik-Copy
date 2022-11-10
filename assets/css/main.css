@@ -133,11 +133,11 @@ hr{
 .light{
 	--main-bg-color: #f3f3f3;
 	--main-sidenav-color: #dcdcdc;
-	--hover-color: #f0f0f0;
-	--font-color1: #606060;
+	--hover-color: #73aec7;
+	--font-color1: #000000;
 	--color1: #749354;
 	--color2: #536d6c;
-	--color3: #445D31;
+	--color3: #055a2b;
 	--color4: #FFF9CA;
 	--color5: #753118;
 	--color6: #FF6600;
@@ -198,6 +198,20 @@ hr{
 	text-align: center;
 }
 
+#copyright p{
+	padding: 5px;
+	color: var(--color3);
+	cursor: pointer;
+}
+
+#copyright p:hover{
+	background-color: var(--hover-color);
+	padding: 5px;
+}
+
+#copyright span{
+	cursor: default;
+}
 
 #contextmenu{
 	background-color: var(--color1);
@@ -337,6 +351,7 @@ hr{
 	margin-left: 5%;
 	z-index: 3;
 	visibility: hidden;
+	cursor: default;
 }
 
 #favnavempty:hover{
@@ -495,6 +510,7 @@ hr{
 #editbuttondialog,
 #exportdialog,
 #importdialog,
+#privacydialog,
 #reorderSectionsDialog,
 #settingsdialog{
 	z-index: 5;
@@ -505,6 +521,7 @@ hr{
 
 #createsectiondialog hr,
 #createbuttondialog hr,
+#privacydialog hr,
 #settingsdialog hr,
 #importdialog hr,
 #exportdialog hr{
@@ -521,6 +538,7 @@ hr{
 
 #createsectiondialog button,
 #createbuttondialog button,
+#privacydialog button,
 #settingsdialog button,
 #importdialog button,
 #exportdialog button{
