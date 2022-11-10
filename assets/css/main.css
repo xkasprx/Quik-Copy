@@ -1,0 +1,575 @@
+/* Root */
+:root{
+	--main-bg-color: #25729E;
+	--main-sidenav-color: #252525;
+	--hover-color: #555555;
+	--font-color1: #37A0DC;
+	--color1: #000000;
+	--color2: #37A0DC;
+	--color3: #00FF00;
+	--color4: #FFFFFF;
+	--color5: #F72828;
+	--color6: #FF6600;
+}
+
+:focus-visible{
+	outline: var(--color1);
+}
+
+/* Elements */
+body, html{
+	margin: 0;
+	padding: 0;
+	min-width: 1140px;
+	font-family: Poppins;
+	overflow-x: hidden;
+	background-color: var(--main-bg-color);
+}
+
+button{
+	background-color: var(--main-sidenav-color);
+	padding: .3rem;
+	color: var(--font-color1);
+	font-size: 12px;
+	text-decoration: none;
+	border: none;
+	font-weight: bold;
+	width: auto;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+button:hover{
+	cursor: pointer;
+	border: none;
+	background: var(--hover-color);
+	box-shadow: 0px 0px 1px var(--hover-color);
+}
+
+dialog{
+	margin-top: 15%;
+	background-color: var(--main-bg-color);
+	padding: 1em;
+	color: var(--main-bg-color);
+	font-size: 15px;
+	-webkit-animation: dfadein 0.5s;
+	animation: dfadein 0.5s;
+}
+
+dialog p, dialog input{
+	margin-left: 20px;
+}
+
+h1{
+	color: var(--color4);
+	margin-block-start: 5px;
+}
+
+h2{
+	color: var(--color3);
+	margin-block-start: -5px;
+	margin-block-end: 0px;
+}
+
+h3{
+	text-align: center;
+	color: var(--color3);
+	font-size: 30px;
+	height: 35px;
+}
+
+h4{
+	text-align: center;
+	color: var(--color3);
+	font-size: 20px;
+	height: 25px;
+	margin-left: 5px;
+}
+
+h5{
+	text-align: left;
+	color: var(--color3);
+	font-size: 15px;
+	height: 25px;
+	margin-left: 5px;
+}
+
+h5:hover .tooltiptext{
+	visibility: visible;
+}
+
+hr{
+	border-color: var(--main-bg-color);
+	border-width: 1px;
+	clear: both;
+}
+
+/* Class */
+.addButtonButton{
+	background-color: var(--color1);
+	color: var(--main-bg-color);
+	float: right;
+	margin-right: 10px;
+	margin-top: -50px;
+}
+
+.addButtonButton:hover{
+	background-color: var(--color3);
+	color: var(--color1)
+}
+
+.deleteSectionButton{
+	background-color: var(--color1);
+	color: var(--main-bg-color);
+	float: right;
+	margin-right: 10px;
+	margin-top: -90px;
+}
+
+.deleteSectionButton:hover{
+	background-color: var(--color5);
+	color: var(--color1)
+}
+
+.light{
+	--main-bg-color: #f3f3f3;
+	--main-sidenav-color: #dcdcdc;
+	--hover-color: #f0f0f0;
+	--font-color1: #606060;
+	--color1: #749354;
+	--color2: #536d6c;
+	--color3: #445D31;
+	--color4: #FFF9CA;
+	--color5: #753118;
+	--color6: #FF6600;
+}
+
+.reorderTextInput {
+	width: 25px;
+	float: right;
+	margin-right: 20px;
+	background-color: var(--main-sidenav-color);
+	color: var(--color4);
+}
+
+.tooltiptext{
+	visibility: hidden;
+	width: 100%;
+	background-color: var(--color1);
+	color: var(--font-color1);
+	font-size: small;
+	opacity: 1;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 5;
+}
+
+.topbannerbranding{
+	font-family: Poppins;
+	display: inline-block;
+	position: relative;
+	height: 30px;
+	width: 33%;
+	text-align: center;
+}
+
+/* ID */
+#addfavbutton{
+	z-index: 50;
+	background-color: var(--color1);
+	color: var(--main-bg-color);
+	margin: auto;
+}
+
+#contextmenu{
+	background-color: #000000;
+}
+
+#createbuttondialog textarea{
+	resize: none;
+	margin-left: 20px;
+	font-family: Poppins;
+	font-weight: 400;
+	height: 300px;
+	width: 300px;
+	background-color: var(--main-sidenav-color);
+	color: var(--color4);
+}
+
+#createbuttondialog input{
+	margin-left: 20px;
+	font-family: Poppins;
+	font-weight: 400;
+	width: 300px;
+	background-color: var(--main-sidenav-color);
+	color: var(--color4);
+}
+
+#createsectionbutton{
+	background-color: var(--color1);
+	color: var(--font-color1);
+	margin: auto;
+	width: 100%;
+}
+
+#createsectionbutton:hover{
+	background-color: var(--hover-color);
+	cursor: pointer;
+}
+
+#editbuttondialog textarea{
+	margin-left: 20px;
+	font-family: Poppins;
+	height: 300px;
+	width: 300px;
+	background-color: var(--main-sidenav-color);
+	color: var(--color4);
+}
+
+#editbuttondialog input{
+	margin-left: 20px;
+	font-family: Poppins;
+	font-weight: 400;
+	width: 300px;
+	background-color: var(--main-sidenav-color);
+	color: var(--color4);
+}
+
+#favdel{
+	position: fixed;
+	visibility: hidden;
+	background-color: var(--color1);
+	z-index: 10;
+	color: var(--font-color1);
+	font-size: 15px;
+	text-decoration: none;
+	border: none;
+	font-weight: bold;
+	width: 142px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#favdel p{
+	padding: .5em;
+}
+
+#favdel p:hover{
+	background-color: var(--hover-color);
+	cursor: pointer;
+}
+
+#favnav{
+	height: 100%;
+	width: 12%;
+	position: fixed;
+	z-index: 1;
+	top: 50px;
+	right: 0;
+	overflow-x: hidden;
+	padding-top: 15px;
+	background-color: var(--main-sidenav-color);
+	font-weight: bold;
+}
+
+#favnav p{
+	margin: 1px;
+	padding: 8px 10px 4px 18px;
+	text-decoration: none;
+	font-size: 12px;
+	color: var(--color2);
+	display: block;
+	border-color: var(--color2);
+}
+
+#favnav p:hover{
+	background-color: var(--hover-color);
+	cursor: pointer;
+}
+
+#favnav::-webkit-scrollbar{
+	width: 0px;
+}
+
+#favnavdropdown{
+	position: absolute;
+	visibility: hidden;
+	background-color: var(--color1);
+	z-index: 10;
+	font-size: 15px;
+	text-decoration: none;
+	border: none;
+	font-weight: bold;
+	width: 142px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#favnavdropdown p{
+	color: var(--font-color1);
+}
+
+#favnavdropdown p:hover{
+	background-color: var(--hover-color);
+}
+
+#favnavempty{
+	position: absolute;
+	text-align: left;
+	margin-left: 5%;
+	z-index: 3;
+	visibility: hidden;
+}
+
+#favnavempty:hover{
+	visibility: hidden !important;
+}
+
+#midcontainer{
+	margin-bottom: 50px;
+}
+
+#midcontainer h4{
+	text-align: center;
+}
+
+#midempty{
+	z-index: 3;
+	position: fixed;
+	width: 100%;
+	margin-top: 20%;
+	text-align: center;
+	visibility: hidden;
+}
+
+#midnav{
+	height: 100%;
+	width: 76%;
+	position: fixed;
+	z-index: 1;
+	top: 50px;
+	left: 12%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background-color: var(--main-bg-color);
+	font-weight: bold;
+}
+
+#midnav hr{
+	border-width: 12px;
+}
+
+#midnav::-webkit-scrollbar{
+	width: 0px;
+}
+
+#popup{
+	visibility: hidden;
+	min-width: 250px;
+	margin-left: -125px;
+	background-color: var(--color1);
+	color: var(--color6);
+	text-align: center;
+	border-radius: 2px;
+	padding: 16px;
+	position: fixed;
+	z-index: 200;
+	left: 50%;
+	bottom: 30px;
+}
+
+#popup.show{
+	visibility: visible;
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#settingsbutton{
+	position: absolute;
+	top: .5rem;
+	left: .5rem;
+	font-size: 30px;
+	color: var(--font-color1);
+	z-index: 1;
+}
+
+#settingsbutton:hover{
+	cursor: pointer;
+	transform: rotate(45deg);
+	color: var(--hover-color)
+}
+
+#sidenav{
+	height: 100%;
+	width: 12%;
+	position: fixed;
+	z-index: 1;
+	top: 50px;
+	left: 0;
+	overflow-x: hidden;
+	padding-top: 15px;
+	background-color: var(--main-sidenav-color);
+	font-weight: bold;
+}
+
+#sidenav a{
+	padding: 8px 10px 4px 18px;
+	text-decoration: none;
+	font-size: 12px;
+	color: var(--color2);
+	display: block;
+	border-color: var(--color2);
+}
+
+#sidenav a:hover{
+	background-color: var(--hover-color);
+}
+
+#sidenav::-webkit-scrollbar{
+	width: 0px;
+}
+
+#sidenavcells{
+	margin-bottom: 15px;
+}
+
+#themebutton{
+	position: absolute;
+	top: .5rem;
+	left: 3rem;
+	font-size: 15px;
+	color: var(--font-color1);
+	z-index: 1;
+}
+
+#themebutton:hover{
+	cursor: pointer;
+	transform: rotate(45deg);
+	color: var(--hover-color)
+}
+
+#topbanner{
+	background-color: var(--color1);
+	height: 50px;
+	width: 100%;
+	position: fixed;
+	z-index: 2;
+}
+
+/* Bundles */
+#createsectiondialog,
+#createbuttondialog,
+#editbuttondialog,
+#exportdialog,
+#importdialog,
+#reorderSectionsDialog,
+#settingsdialog{
+	z-index: 5;
+	color: var(--color1);
+	font-weight: 600;
+	width: 22rem;
+}
+
+#createsectiondialog hr,
+#createbuttondialog hr,
+#settingsdialog hr,
+#importdialog hr,
+#exportdialog hr{
+	border-width: 3px;
+}
+
+#createsectiondialog p,
+#createbuttondialog p,
+#settingsdialog p,
+#importdialog p,
+#exportdialog p{
+	display: inline;
+}
+
+#createsectiondialog button,
+#createbuttondialog button,
+#settingsdialog button,
+#importdialog button,
+#exportdialog button{
+	float: right;
+	margin-top: -3px;
+}
+
+#settingsdialog,
+#importdialog,
+#exportdialog{
+	display: none;
+}
+
+/* Keyframes */
+@-webkit-keyframes fadein{
+	from{
+		bottom: 0;
+		opacity: 0;
+	}
+
+	to{
+		bottom: 30px;
+		opacity: 1;
+	}
+}
+
+@keyframes fadein{
+	from{
+		bottom: 0;
+		opacity: 0;
+	}
+
+	to{
+		bottom: 30px;
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeout{
+	from{
+		bottom: 30px;
+		opacity: 1;
+	}
+
+	to{
+		bottom: 0;
+		opacity: 0;
+	}
+}
+
+@keyframes fadeout{
+	from{
+		bottom: 30px;
+		opacity: 1;
+	}
+
+	to{
+		bottom: 0;
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes dfadein{
+	from{
+		opacity: 0;
+	}
+
+	to{
+		opacity: 1;
+	}
+}
+
+@keyframes dfadein{
+	from{
+		opacity: 0;
+	}
+
+	to{
+		opacity: 1;
+	}
+}
