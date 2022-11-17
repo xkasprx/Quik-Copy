@@ -421,6 +421,7 @@ function handleBranding(){
         version.hidden = false;
         version.style.float = `right`;
         brandingPosition.style.position = `relative`;
+        brandingPosition.style.bottom = `.3rem`;
         brandingPosition.hidden = false;
         fav.innerText = `Favorites`;
         nav.innerText = `Navigation`;
