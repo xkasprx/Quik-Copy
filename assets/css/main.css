@@ -185,6 +185,7 @@ hr{
 	position: fixed;
 	right: 10px;
 	bottom: 10px;
+	display: flex;
 }
 
 #copyright{
@@ -361,8 +362,9 @@ hr{
 #icon{
 	height: 50px;
 	display: block;
-	filter: grayscale(100%);
-	-webkit-filter: grayscale(100%);
+	margin: 3px;
+	filter: grayscale(90%);
+	-webkit-filter: grayscale(90%);
 	-webkit-transition: all 1s ease;
 }
 
