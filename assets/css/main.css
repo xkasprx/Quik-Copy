@@ -362,7 +362,7 @@ hr{
 #icon{
 	height: 40px;
 	display: block;
-	margin: 3px;
+	margin: auto;
 	filter: grayscale(90%);
 	-webkit-filter: grayscale(90%);
 	-webkit-transition: all 1s ease;
@@ -374,6 +374,12 @@ hr{
 	-webkit-filter: grayscale(0%);
 	filter: none;
 	transition: 1s ease;
+}
+
+#iconlabel{
+	margin: 5px;
+	color: var(--color2);
+	text-decoration: none;
 }
 
 #midcontainer{
