@@ -1,3 +1,5 @@
+let versionText = `3.1.4`;
+
 let body = document.body;
 let activeButtonID;
 let activeSectionID;
@@ -8,6 +10,7 @@ let oldButtonValue;
 
 let lightMode = localStorage.getItem(`lightMode`);
 
+let backend = document.getElementById(`backend`);
 let buttonNameInput = document.getElementById(`buttonNameInput`);
 let buttonPasteValue = document.getElementById(`buttonPasteValue`);
 let createButtonDialog = document.getElementById(`createbuttondialog`);
@@ -411,32 +414,6 @@ function favRightClicked(buttonId){
     });
 }
 
-function handleBranding(){
-    if(window.innerWidth < 1215){
-        version.hidden = true;
-        brandingPosition.style.position = `relative`;
-        fav.innerText = `Favs`;
-        nav.innerText = `Nav`;
-    }else{
-        version.hidden = false;
-        version.style.float = `right`;
-        brandingPosition.style.position = `relative`;
-        brandingPosition.style.bottom = `.3rem`;
-        brandingPosition.hidden = false;
-        fav.innerText = `Favorites`;
-        nav.innerText = `Navigation`;
-    }
-
-    for (let i = 0; i < midContainer.children.length; i++){
-        let child = midContainer.children[i];
-
-        for (let j = 0; j < child.children.length; j++){
-            let button = child.children[j];
-            button.style.fontSize = window.innerWidth > 1215 ? `15px` : `12px`;
-        }
-    }
-};
-
 function importItems(){
     closeDialog();
     importDialog.style.display = `block`;
@@ -565,6 +542,31 @@ function promptNewSection(){
     createSectionDialog.show();
 };
 
+function restyleElements(){
+    if(window.innerWidth < 1215){
+        version.hidden = true;
+        fav.innerText = `Favs`;
+        nav.innerText = `Nav`;
+        backend.style.display = `block`;
+    }else{
+        version.hidden = false;
+        version.style.float = `right`;
+        brandingPosition.hidden = false;
+        fav.innerText = `Favorites`;
+        nav.innerText = `Navigation`;
+        backend.style.display = `flex`;
+    }
+
+    for(let i = 0; i < midContainer.children.length; i++){
+        let child = midContainer.children[i];
+
+        for (let j = 0; j < child.children.length; j++){
+            let button = child.children[j];
+            button.style.fontSize = window.innerWidth > 1215 ? `15px` : `12px`;
+        }
+    }
+};
+
 function saveText(text, filename){
     let a = document.createElement(`a`);
     a.setAttribute(`href`, `data:text/plain;charset=utf-u,${encodeURIComponent(text)}`);
@@ -639,7 +641,7 @@ function toggleTheme(){
 };
 
 window.onload = function(){
-    this.handleBranding();
+    this.restyleElements();
     this.isMobile();
     if(localStorage.allSections && localStorage.allSections != `[]`){
         this.loadSections();
@@ -662,10 +664,12 @@ window.onload = function(){
     currentStatus === `enabled` ? enableLightMode() : localStorage.lightMode = `disabled`;
     themeButton.className = currentStatus === `enabled` ? `fas fa-sun` : `fas fa-moon`;
     reorderSectionsDialog.innerHTML = reorderSectionsDialog.innerHTML.replace(`XYZ`, JSON.parse(localStorage.allSections).length);
+    
+    version.innerText = version.innerText.replace(`Unknown`, versionText);
 };
 
-window.onresize = function(e){
-    this.handleBranding();
+window.onresize = function(){
+    this.restyleElements();
 };
 
 function isMobile(){
