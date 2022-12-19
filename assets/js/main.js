@@ -1,4 +1,4 @@
-let versionText = `3.1.4`;
+let versionText = `3.1.5`;
 
 let body = document.body;
 let activeButtonID;
@@ -13,6 +13,7 @@ let lightMode = localStorage.getItem(`lightMode`);
 let backend = document.getElementById(`backend`);
 let buttonNameInput = document.getElementById(`buttonNameInput`);
 let buttonPasteValue = document.getElementById(`buttonPasteValue`);
+let copyright =document.getElementById(`copyright`);
 let createButtonDialog = document.getElementById(`createbuttondialog`);
 let createSectionDialog = document.getElementById(`createsectiondialog`);
 let editButtonDialog = document.getElementById(`editbuttondialog`);
@@ -666,6 +667,7 @@ window.onload = function(){
     reorderSectionsDialog.innerHTML = reorderSectionsDialog.innerHTML.replace(`XYZ`, JSON.parse(localStorage.allSections).length);
     
     version.innerText = version.innerText.replace(`Unknown`, versionText);
+    copyright.innerHTML = copyright.innerHTML.replace(`YEARS`, `&copy; 2020 ~ ${new Date().getFullYear()}`);
 };
 
 window.onresize = function(){
