@@ -421,6 +421,10 @@ hr{
 	animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+#privacy{
+	color: var(--color3);
+}
+
 #settingsbutton{
 	position: absolute;
 	top: .5rem;
