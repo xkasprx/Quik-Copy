@@ -181,13 +181,6 @@ hr{
 	margin: auto;
 }
 
-#backend{
-	position: fixed;
-	right: 10px;
-	bottom: 10px;
-	display: flex;
-}
-
 #branding{
 	position: relative;
 	bottom: .3rem;
@@ -361,23 +354,6 @@ hr{
 
 #favnavempty:hover{
 	visibility: hidden !important;
-}
-
-#icon{
-	height: 40px;
-	display: block;
-	margin: 10px;
-	filter: grayscale(90%);
-	-webkit-filter: grayscale(90%);
-	-webkit-transition: all 1s ease;
-}
-
-#icon:hover{
-	filter: grayscale(0%);
-	filter: var(--color7);
-	-webkit-filter: grayscale(0%);
-	filter: none;
-	transition: 1s ease;
 }
 
 #midcontainer{

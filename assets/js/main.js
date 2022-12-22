@@ -10,7 +10,6 @@ let oldButtonValue;
 
 let lightMode = localStorage.getItem(`lightMode`);
 
-let backend = document.getElementById(`backend`);
 let buttonNameInput = document.getElementById(`buttonNameInput`);
 let buttonPasteValue = document.getElementById(`buttonPasteValue`);
 let copyright =document.getElementById(`copyright`);
@@ -548,14 +547,12 @@ function restyleElements(){
         version.hidden = true;
         fav.innerText = `Favs`;
         nav.innerText = `Nav`;
-        backend.style.display = `block`;
     }else{
         version.hidden = false;
         version.style.float = `right`;
         brandingPosition.hidden = false;
         fav.innerText = `Favorites`;
         nav.innerText = `Navigation`;
-        backend.style.display = `flex`;
     }
 
     for(let i = 0; i < midContainer.children.length; i++){
