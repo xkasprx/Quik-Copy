@@ -43,7 +43,8 @@
             <hr>
             <div id="copyright">
                 <hr>
-                <p onclick="showPrivacy()">Privacy</p>
+                <p id="privacylink" onclick="showPrivacy()">Privacy</p>
+                <p id="termslink" onclick="showTerms()">Terms</p>
                 <hr>
                 <span onclick="loadHome()">YEARS DMS Services<br>All Rights Reserved
             </div>
@@ -108,7 +109,7 @@
         <dialog id="privacydialog">
             <p>Privacy</p>
             <hr>
-            <p>A full view of the privacy policy can be viewed <a href="https://dmskaspr.com/#privacy" id="privacy">here</a>.</p>
+            <p>A full view of the privacy policy can be viewed <a href="https://dmskaspr.com/#privacy" id="agreement">here</a>.</p>
             <hr>
             <button class="cancel" onclick="closeDialog()">Close</button>
         </dialog>
@@ -204,6 +205,13 @@
             <div id="exportcheckboxes"></div>
             <button onclick="confirmExport()">Confirm</button>
             <button class="cancel" onclick="closeDialog()">Cancel</button>
+        </dialog>
+        <dialog id="termsdialog">
+            <p>Terms and Conditions</p>
+            <hr>
+            <p>A full view of the terms and conditions can be viewed <a href="https://dmskaspr.com/#agreement" id="agreement">here</a>.</p>
+            <hr>
+            <button class="cancel" onclick="closeDialog()">Close</button>
         </dialog>
         <div id="popup">
         </div>

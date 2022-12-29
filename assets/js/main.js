@@ -1,4 +1,4 @@
-let versionText = `3.2.4`;
+let versionText = `3.2.5`;
 
 let body = document.body;
 let activeButtonID;
@@ -41,6 +41,7 @@ let settingsDialog = document.getElementById(`settingsdialog`);
 let settingsButton = document.getElementById(`settings`);
 let sideNav = document.getElementById(`sidenav`);
 let sideNavCells = document.getElementById(`sidenavcells`);
+let termsDialog =document.getElementById(`termsdialog`);
 let themeButton = document.getElementById(`themebutton`);
 let topBanner = document.getElementById(`topbanner`);
 let version = document.getElementById(`version`);
@@ -653,6 +654,10 @@ function showSectionReorder(){
     }else{
         alert(`There are no sections to reorder!`);
     }
+};
+
+function showTerms(){
+    termsDialog.show();
 };
 
 function toggleTheme(){
