@@ -7,154 +7,157 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="shortcut icon" href="/assets/images/icon.png" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6315873974759643"
-     crossorigin="anonymous"></script>
 </head>
 
 <body id="body">
-    <div id="topbanner">
-        <span id="settings">
-            <span class="fa fa-cog" id="settingsbutton" onclick="settingsMenu()"></span>
-        </span>
-        <span id="theme">
-            <span class="fas fa-moon" id="themebutton" onclick="toggleTheme()"></span>
-        </span>
-        <span class="topbannerbranding">
-        </span>
-        <span class="topbannerbranding" id="brandingcontainer">
-            <h1 id="branding">Quik Copy</h1>
-        </span>
-        <span class="topbannerbranding">
-            <h2 id="version">Version Unknown</h2>
-        </span>
-    </div>
-    <div id="sidenav">
-        <h4 id="nav">Navigation</h4>
-        <hr>
-        <a href="#top">
-            <div>Top</div>
-        </a>
-        <hr>
-        <div id="sidenavcells">
+    <div class="pagecontainer">
+        <div id="topbanner">
+            <span id="settings">
+                <span class="fa fa-cog" id="settingsbutton" onclick="settingsMenu()"></span>
+            </span>
+            <span id="theme">
+                <span class="fas fa-moon" id="themebutton" onclick="toggleTheme()"></span>
+            </span>
+            <span class="topbannerbranding">
+            </span>
+            <span class="topbannerbranding" id="brandingcontainer">
+                <h1 id="branding">Quik Copy</h1>
+            </span>
+            <span class="topbannerbranding">
+                <h2 id="version">Version Unknown</h2>
+            </span>
         </div>
-        <hr>
-        <div>
-            <button id="createsectionbutton" onclick="promptNewSection()">Create Section</button>
-        </div>
-        <hr>
-        <div id="adone"></div>
-        <div id="copyright">
+        <div id="sidenav">
+            <h4 id="nav">Navigation</h4>
             <hr>
-            <p onclick="showPrivacy()">Privacy</p>
+            <a href="#top">
+                <div>Top</div>
+            </a>
             <hr>
-			<span onclick="loadHome()">YEARS DMS Services ~ All Rights Reserved
-		</div>
-    </div>
-    <div id="favnav">
-        <div id="favnavdropdown">
-            <p onclick="deleteFavorite()">Remove</p>
+            <div id="sidenavcells">
+            </div>
+            <hr>
+            <div>
+                <button id="createsectionbutton" onclick="promptNewSection()">Create Section</button>
+            </div>
+            <hr>
+            <div id="copyright">
+                <hr>
+                <p onclick="showPrivacy()">Privacy</p>
+                <hr>
+                <span onclick="loadHome()">YEARS DMS Services ~ All Rights Reserved
+            </div>
         </div>
-        <h4 id="fav">Favorites</h4>
-        <hr>
-        <div>
-            <h5 id="favnavempty"><span class="tooltiptext">Right click a button to add to the favorites panel.</span>No Favorites Added</h5>
+        <div id="favnav">
+            <div id="favnavdropdown">
+                <p onclick="deleteFavorite()">Remove</p>
+            </div>
+            <h4 id="fav">Favorites</h4>
+            <hr>
+            <div>
+                <h5 id="favnavempty"><span class="tooltiptext">Right click a button to add to the favorites panel.</span>No Favorites Added</h5>
+            </div>
+            <div id="favnavcells">
+            </div>
         </div>
-        <div id="favnavcells">
+        <div id="midnav">
+            <div id="top">
+            </div>
+            <div id="favdel">
+                <p onclick="addFavorite()">Favorite</p>
+                <p onclick="editButton()">Edit</p>
+                <p onclick="deleteButton()">Delete</p>
+            </div>
+            <div id="midcontainer">
+            </div>
         </div>
-        <hr>
-        <div id="adtwo"></div>
-    </div>
-    <div id="midnav">
-        <div id="top">
+        <div id="midempty">
+            <h3>No Sections Created</h3>
         </div>
-        <div id="favdel">
-            <p onclick="addFavorite()">Favorite</p>
-            <p onclick="editButton()">Edit</p>
-            <p onclick="deleteButton()">Delete</p>
+        <dialog id="createsectiondialog">
+            <p>Section Name</p>
+            <input type="text" name="sectionNameInput" id="sectionNameInput" hint="Name" autocomplete="off"></input>
+            <hr>
+            <button type="submit" onclick="createSection()" id="sectionSubmit">Submit</button>
+            <button class="cancel" onclick="closeDialog()">Cancel</button>
+        </dialog>
+        <dialog id="createbuttondialog">
+            <p>Button Name</p>
+            <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off"></input>
+            <hr>
+            <p>Button Value</p>
+            <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off"></textarea>
+            <br>
+            <button onclick="createButton()">Submit</button>
+            <button class="cancel" onclick="closeDialog()">Cancel</button>
+        </dialog>
+        <dialog id="editbuttondialog">
+            <p>New Button Name</p>
+            <input type="text" name="editNameInput" id="editNameInput" hint="Name"></input>
+            <br>
+            <p>New Button Value</p>
+            <textarea name="editPasteValue" id="editPasteValue" hint="Paste Value"></textarea>
+            <br>
+            <button class="cancel" onclick="closeDialog()">Cancel</button>
+            <button id="editSubmitButton">Submit</button>
+        </dialog>
+        <dialog id="privacydialog">
+            <p>Privacy</p>
+            <hr>
+            <p>A full view of the company privacy policy can be viewed <a href="https://dmskaspr.com/#privacy" id="privacy">here</a>.</p>
+            <hr>
+            <button class="cancel" onclick="closeDialog()">Close</button>
+        </dialog>
+        <dialog id="reorderSectionsDialog">
+            <p>Reorder sections from 1 to XYZ</p>
+            <div id="reorderSections"></div>
+            <button onclick="confirmSectionReorder()">Confirm</button>
+            <button class="cancel" onclick="closeDialog()">Cancel</button>
+        </dialog>
+        <dialog id="settingsdialog">
+            <p>Settings</p>
+            <br>
+            <hr>
+            <p>Reorder Sections</p>
+            <button onclick="showSectionReorder()">Reorder</button>
+            <br>
+            <hr>
+            <p>Import/Export</p>
+            <button onclick="exportItems()">Export</button>
+            <button onclick="importItems()">Import</button>
+            <br>
+            <hr>
+            <p>Delete All</p>
+            <button id="deleteallbutton" onclick="clearAll()">Delete All</button>
+            <br>
+            <hr>
+            <button class="cancel" onclick="closeDialog()">Cancel</button>
+        </dialog>
+        <dialog id="importdialog">
+            <p>Select file to import.</p>
+            <hr>
+            <input id="file" type="file" accept="json">
+            <script src="/assets/js/import.js"></script>
+            <br>
+            <button class="cancel" onclick="closeDialog()">Cancel</button>
+        </dialog>
+        <dialog id="exportdialog">
+            <p>Export which sections?</p>
+            <hr>
+            <div id="exportcheckboxes"></div>
+            <button onclick="confirmExport()">Confirm</button>
+            <button class="cancel" onclick="closeDialog()">Cancel</button>
+        </dialog>
+        <div id="popup">
         </div>
-        <div id="midcontainer">
-        </div>
-    </div>
-    <div id="midempty">
-        <h3>No Sections Created</h3>
-    </div>
-    <dialog id="createsectiondialog">
-        <p>Section Name</p>
-        <input type="text" name="sectionNameInput" id="sectionNameInput" hint="Name" autocomplete="off"></input>
-        <hr>
-        <button type="submit" onclick="createSection()" id="sectionSubmit">Submit</button>
-        <button class="cancel" onclick="closeDialog()">Cancel</button>
-    </dialog>
-    <dialog id="createbuttondialog">
-        <p>Button Name</p>
-        <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off"></input>
-        <hr>
-        <p>Button Value</p>
-        <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off"></textarea>
-        <br>
-        <button onclick="createButton()">Submit</button>
-        <button class="cancel" onclick="closeDialog()">Cancel</button>
-    </dialog>
-    <dialog id="editbuttondialog">
-        <p>New Button Name</p>
-        <input type="text" name="editNameInput" id="editNameInput" hint="Name"></input>
-        <br>
-        <p>New Button Value</p>
-        <textarea name="editPasteValue" id="editPasteValue" hint="Paste Value"></textarea>
-        <br>
-        <button class="cancel" onclick="closeDialog()">Cancel</button>
-        <button id="editSubmitButton">Submit</button>
-    </dialog>
-    <dialog id="privacydialog">
-        <p>Privacy</p>
-        <hr>
-        <p>A full view of the company privacy policy can be viewed <a href="https://dmskaspr.com/#privacy" id="privacy">here</a>.</p>
-        <hr>
-        <button class="cancel" onclick="closeDialog()">Close</button>
-    </dialog>
-    <dialog id="reorderSectionsDialog">
-        <p>Reorder sections from 1 to XYZ</p>
-        <div id="reorderSections"></div>
-        <button onclick="confirmSectionReorder()">Confirm</button>
-        <button class="cancel" onclick="closeDialog()">Cancel</button>
-    </dialog>
-    <dialog id="settingsdialog">
-        <p>Settings</p>
-        <br>
-        <hr>
-        <p>Reorder Sections</p>
-        <button onclick="showSectionReorder()">Reorder</button>
-        <br>
-        <hr>
-        <p>Import/Export</p>
-        <button onclick="exportItems()">Export</button>
-        <button onclick="importItems()">Import</button>
-        <br>
-        <hr>
-        <p>Delete All</p>
-        <button id="deleteallbutton" onclick="clearAll()">Delete All</button>
-        <br>
-        <hr>
-        <button class="cancel" onclick="closeDialog()">Cancel</button>
-    </dialog>
-    <dialog id="importdialog">
-        <p>Select file to import.</p>
-        <hr>
-        <input id="file" type="file" accept="json">
-        <script src="/assets/js/import.js"></script>
-        <br>
-        <button class="cancel" onclick="closeDialog()">Cancel</button>
-    </dialog>
-    <dialog id="exportdialog">
-        <p>Export which sections?</p>
-        <hr>
-        <div id="exportcheckboxes"></div>
-        <button onclick="confirmExport()">Confirm</button>
-        <button class="cancel" onclick="closeDialog()">Cancel</button>
-    </dialog>
-    <div id="popup">
     </div>
     <script src="/assets/js/main.js"></script>
+    <noscript>
+        <style type="text/css">
+            .pagecontainer{visibility: hidden}
+            #body::before{content: "You don't have JavaScript enabled.  Good luck with that cause nothing on this site works without it.";}
+        </style>
+    </noscript>
 </body>
 
 </html>

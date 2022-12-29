@@ -1,4 +1,4 @@
-let versionText = `3.2.1`;
+let versionText = `3.2.2`;
 
 let body = document.body;
 let activeButtonID;
@@ -39,6 +39,7 @@ let settingsButton = document.getElementById(`settings`);
 let sideNav = document.getElementById(`sidenav`);
 let sideNavCells = document.getElementById(`sidenavcells`);
 let themeButton = document.getElementById(`themebutton`);
+let topBanner = document.getElementById(`topbanner`);
 let version = document.getElementById(`version`);
 let brandingPosition = document.getElementById(`branding`);
 
@@ -673,10 +674,6 @@ window.onresize = function(){
 
 function isMobile(){
     if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini/.test(navigator.userAgent)){
-        midEmpty.style.display = `none`;
-        sideNav.style.display = `none`;
-        favNav.style.display = `none`;
-        midContainer.style.paddingTop = `50%`
-        midContainer.innerHTML = `<h1>This site is not desiged to be functional from a mobile device, please return using a desktop computer to use this tool.</h1>`
+        document.body.innerHTML = `<center><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><h1>This site is not desiged to be functional from a mobile device, please return using a desktop computer to use this tool.</h1><center>`;
     }
 };

@@ -174,16 +174,6 @@ hr{
 	text-align: center;
 }
 
-#adone{
-	height: max-content;
-	text-align: center;
-}
-
-#adtwo{
-	text-align: center;
-	height: max-content;
-}
-
 #addfavbutton{
 	z-index: 50;
 	background-color: var(--color1);
@@ -199,9 +189,9 @@ hr{
 #copyright{
 	position: absolute;
 	background-color: var(--main-sidenav-color);
-	width: auto;
+	width: 100%;
 	left: 0px;
-	bottom: 50px;
+	bottom: 4rem;
 	font-size: x-small;
 	color: var(--color6);
 	text-align: center;
@@ -336,8 +326,7 @@ hr{
 #favnavcells{
 	margin-top: -70px;
 	margin-bottom: 15px;
-	max-height: 265px;
-	height: 265px;
+	max-height: 1000px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
@@ -492,8 +481,7 @@ hr{
 
 #sidenavcells{
 	margin-bottom: 15px;
-	max-height: 350px;
-	height: 350px;
+	max-height: 900px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
