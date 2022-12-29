@@ -423,19 +423,19 @@ function favRightClicked(buttonId){
 }
 
 function showHelp(){
-    helpDialog2.close();
     helpDialog.show();
+    helpDialog2.close();
 };
 
 function showHelp2(){
+    helpDialog2.show();
     helpDialog.close();
     helpDialog3.close();
-    helpDialog2.show();
 };
 
 function showHelp3(){
-    helpDialog2.close();
     helpDialog3.show();
+    helpDialog2.close();
 };
 
 function importItems(){
