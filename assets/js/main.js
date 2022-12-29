@@ -1,4 +1,4 @@
-let versionText = `3.2.2`;
+let versionText = `3.2.4`;
 
 let body = document.body;
 let activeButtonID;
@@ -25,6 +25,9 @@ let favNav = document.getElementById(`favnav`);
 let favNavCells = document.getElementById(`favnavcells`);
 let favNavEmpty = document.getElementById(`favnavempty`);
 let favNavDropdown = document.getElementById(`favnavdropdown`);
+let helpDialog = document.getElementById(`helpdialog`);
+let helpDialog2 = document.getElementById(`helpdialog2`);
+let helpDialog3 = document.getElementById(`helpdialog3`);
 let importDialog = document.getElementById(`importdialog`);
 let midEmpty = document.getElementById(`midempty`);
 let midContainer = document.getElementById(`midcontainer`);
@@ -98,6 +101,9 @@ function clearAll(){
 function closeDialog(){
     createSectionDialog.close();
     createButtonDialog.close();
+    helpDialog.close();
+    helpDialog2.close();
+    helpDialog3.close();
     privacyDialog.close();
     settingsDialog.style.display = `none`;
     importDialog.style.display = `none`;
@@ -289,13 +295,14 @@ function deleteSection(sectionId){
     let favoriteButtons = JSON.parse(localStorage.favoriteButtons);
     let confirmText = `Are you sure you want to delete the section ${allSections[sectionId].sectionName} and all of its buttons?`;
 
+    
     if(confirm(confirmText)){
         delete allSections[sectionId];
         allSections.splice(sectionId, 1);
         localStorage.allSections = JSON.stringify(allSections);
         let originalLength = favoriteButtons.length;
         for (let i = 0; i < originalLength; i++){
-            if(favoriteButtons[i].sectionId === sectionId){
+            if(Number(favoriteButtons[i].sectionId) === sectionId){
                 delete favoriteButtons[i];
                 favoriteButtons.splice(i, 1);
                 localStorage.favoriteButtons = JSON.stringify(favoriteButtons);
@@ -414,6 +421,22 @@ function favRightClicked(buttonId){
         localStorage.removeItem(`activeFav`);
     });
 }
+
+function showHelp(){
+    helpDialog2.close();
+    helpDialog.show();
+};
+
+function showHelp2(){
+    helpDialog.close();
+    helpDialog3.close();
+    helpDialog2.show();
+};
+
+function showHelp3(){
+    helpDialog2.close();
+    helpDialog3.show();
+};
 
 function importItems(){
     closeDialog();

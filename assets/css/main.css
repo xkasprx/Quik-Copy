@@ -9,6 +9,8 @@
 	--color4: #FFFFFF;
 	--color5: #F72828;
 	--color6: #FF6600;
+	--font: Poppins;
+	--cursor: pointer;
 }
 
 :focus-visible{
@@ -19,9 +21,10 @@ body, html{
 	margin: 0;
 	padding: 0;
 	min-width: 1140px;
-	font-family: Poppins;
+	font-family: var(--font);
 	overflow-x: hidden;
 	background-color: var(--main-bg-color);
+	cursor: var(--cursor);
 }
 
 button{
@@ -40,7 +43,6 @@ button{
 }
 
 button:hover{
-	cursor: pointer;
 	border: none;
 	background: var(--hover-color);
 	box-shadow: 0px 0px 1px var(--hover-color);
@@ -96,7 +98,6 @@ h5{
 
 h5:hover .tooltiptext{
 	visibility: visible;
-
 }
 
 hr{
@@ -142,6 +143,8 @@ hr{
 	--color4: #FFF9CA;
 	--color5: #753118;
 	--color6: #FF6600;
+	--font: Poppins;
+	--cursor: pointer;
 }
 
 .reorderTextInput {
@@ -166,7 +169,6 @@ hr{
 }
 
 .topbannerbranding{
-	font-family: Poppins;
 	display: inline-block;
 	position: relative;
 	height: 30px;
@@ -200,16 +202,11 @@ hr{
 #copyright p{
 	padding: 5px;
 	color: var(--color3);
-	cursor: pointer;
 }
 
 #copyright p:hover{
 	background-color: var(--hover-color);
 	padding: 5px;
-}
-
-#copyright span{
-	cursor: default;
 }
 
 #contextmenu{
@@ -219,7 +216,6 @@ hr{
 #createbuttondialog textarea{
 	resize: none;
 	margin-left: 20px;
-	font-family: Poppins;
 	font-weight: 400;
 	height: 300px;
 	width: 300px;
@@ -229,7 +225,6 @@ hr{
 
 #createbuttondialog input{
 	margin-left: 20px;
-	font-family: Poppins;
 	font-weight: 400;
 	width: 300px;
 	background-color: var(--main-sidenav-color);
@@ -244,12 +239,10 @@ hr{
 
 #createsectionbutton:hover{
 	background-color: var(--hover-color);
-	cursor: pointer;
 }
 
 #editbuttondialog textarea{
 	margin-left: 20px;
-	font-family: Poppins;
 	height: 300px;
 	width: 300px;
 	background-color: var(--main-sidenav-color);
@@ -258,7 +251,6 @@ hr{
 
 #editbuttondialog input{
 	margin-left: 20px;
-	font-family: Poppins;
 	font-weight: 400;
 	width: 300px;
 	background-color: var(--main-sidenav-color);
@@ -286,7 +278,6 @@ hr{
 
 #favdel p:hover{
 	background-color: var(--hover-color);
-	cursor: pointer;
 }
 
 #favnav{
@@ -314,7 +305,6 @@ hr{
 
 #favnav p:hover{
 	background-color: var(--hover-color);
-	cursor: pointer;
 }
 
 #favnavcells::-webkit-scrollbar,
@@ -358,11 +348,47 @@ hr{
 	margin-left: 5%;
 	z-index: 3;
 	visibility: hidden;
-	cursor: default;
 }
 
 #favnavempty:hover{
 	visibility: hidden !important;
+}
+
+#help{
+	position: absolute;
+	background-color: var(--main-sidenav-color);
+	width: 100%;
+	right: 0px;
+	bottom: 5rem;
+	text-align: center;
+}
+
+#help p{
+	padding: 5px;
+	font-size: small;
+	color: var(--color6);
+}
+
+#helpimage{
+	display:inline-flex;
+	border: solid 3px var(--color1);
+	max-width: 200px;
+	margin-left: 15rem;
+}
+
+#helpimageleft{
+	display:inline-flex;
+	border: solid 3px var(--color1);
+	max-width: 200px;
+	float: left;
+}
+
+#helpimageright{
+	display:inline-flex;
+	border: solid 3px var(--color1);
+	max-height: 175px;
+	margin-bottom: 5px;
+	float: right;
 }
 
 #midcontainer{
@@ -406,7 +432,6 @@ hr{
 #noscript{
 	color: var(--color1);
 	font-size: large;
-
 }
 
 #popup{
@@ -444,7 +469,6 @@ hr{
 }
 
 #settingsbutton:hover{
-	cursor: pointer;
 	transform: rotate(45deg);
 	color: var(--hover-color)
 }
@@ -496,9 +520,8 @@ hr{
 }
 
 #themebutton:hover{
-	cursor: pointer;
 	transform: rotate(45deg);
-	color: var(--hover-color)
+	color: var(--hover-color);
 }
 
 #topbanner{
@@ -507,6 +530,10 @@ hr{
 	width: 100%;
 	position: fixed;
 	z-index: 2;
+}
+
+#version{
+	color: var(--color6);
 }
 
 #createsectiondialog,
@@ -521,12 +548,14 @@ hr{
 	color: var(--color1);
 	font-weight: 600;
 	width: 22rem;
-	cursor: default;
 }
 
 #createsectiondialog hr,
 #createbuttondialog hr,
 #privacydialog hr,
+#helpdialog hr,
+#helpdialog2 hr,
+#helpdialog3 hr,
 #settingsdialog hr,
 #importdialog hr,
 #exportdialog hr{
@@ -544,6 +573,9 @@ hr{
 #createsectiondialog button,
 #createbuttondialog button,
 #privacydialog button,
+#helpdialog button,
+#helpdialog2 button,
+#helpdialog3 button,
 #settingsdialog button,
 #importdialog button,
 #exportdialog button{
@@ -555,6 +587,16 @@ hr{
 #importdialog,
 #exportdialog{
 	display: none;
+}
+
+#helpdialog,
+#helpdialog2,
+#helpdialog3{
+	z-index: 5;
+	color: var(--color1);
+	font-weight: 600;
+	width: 30rem;
+	bottom: 25px;
 }
 
 @-webkit-keyframes fadein{
