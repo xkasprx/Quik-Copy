@@ -747,7 +747,8 @@ function isMobile(){
             textAlign: `center`,
             height: `90vh`,
             display: `flex`,
-            paddingLeft: `7%`,
+            paddingLeft: `25%`,
+            paddingRight: `25%`,
             fontSize: `2vw`,
             width: `40%`,
         }
