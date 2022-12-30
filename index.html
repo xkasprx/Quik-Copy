@@ -97,7 +97,7 @@
         </div>
         <dialog id="createsectiondialog">
             <p>Section Name</p>
-            <input type="text" name="sectionNameInput" id="sectionNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1"></input>
+            <input type="text" name="sectionNameInput" id="sectionNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false"></input>
              <span id="limit">(30 characters max)</span>
              <hr>
             <button type="submit" onclick="createSection()" id="sectionSubmit">Submit</button>
@@ -105,22 +105,22 @@
         </dialog>
         <dialog id="createbuttondialog">
             <p>Button Name</p>
-            <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1"></input>
+            <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false"></input>
             <br><span id="limit">(30 characters max)</span>
             <hr>
             <p>Button Value</p>
-            <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off" minlength="1"></textarea>
+            <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off" minlength="1" spellcheck="false"></textarea>
             <br>
             <button onclick="createButton()">Submit</button>
             <button class="cancel" onclick="closeDialog()">Cancel</button>
         </dialog>
         <dialog id="editbuttondialog">
             <p>New Button Name</p>
-            <input type="text" name="editNameInput" id="editNameInput" hint="Name"autocomplete="off" maxlength="30" minlength="1"></input>
+            <input type="text" name="editNameInput" id="editNameInput" hint="Name"autocomplete="off" maxlength="30" minlength="1" spellcheck="false"></input>
             <br><span id="limit">(30 characters max)</span>
             <br>
             <p>New Button Value</p>
-            <textarea name="editPasteValue" id="editPasteValue" hint="Paste Value"autocomplete="off" minlength="1"></textarea>
+            <textarea name="editPasteValue" id="editPasteValue" hint="Paste Value"autocomplete="off" minlength="1" spellcheck="false"></textarea>
             <br>
             <button class="cancel" onclick="closeDialog()">Cancel</button>
             <button id="editSubmitButton" onclick="saveButton()">Submit</button>
