@@ -392,6 +392,12 @@ hr{
 	float: right;
 }
 
+#limit{
+	font-size: xx-small;
+	float: right;
+	width: 40%;
+}
+
 #midcontainer{
 	margin-bottom: 50px;
 }
