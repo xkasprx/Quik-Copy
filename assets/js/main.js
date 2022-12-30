@@ -1,4 +1,4 @@
-let versionText = `3.2.9`;
+let versionText = `3.3.0`;
 
 let body = document.body;
 let activeButtonID;
@@ -197,7 +197,7 @@ function confirmSectionReorder(){
 function copyPasteButtonPressed(sectionId, buttonId){
     closeDialog();
     let allSections = JSON.parse(localStorage.allSections);
-    if(event.which === 1){
+    if(window.event.which === 1){
         let pasteValue = allSections[sectionId].sectionButtons[buttonId].pasteValue;
         let textarea = document.createElement(`textarea`);
         let buttonName = allSections[sectionId].sectionButtons[buttonId].buttonName;
@@ -206,7 +206,7 @@ function copyPasteButtonPressed(sectionId, buttonId){
         textarea.value = pasteValue;
         body.appendChild(textarea);
         textarea.select();
-        document.execCommand(`copy`);
+        navigator.clipboard.writeText(pasteValue);
         body.removeChild(textarea);
         popup.innerText = popupText;
         popup.className = `show`;
@@ -217,6 +217,7 @@ function copyPasteButtonPressed(sectionId, buttonId){
 };
 
 function copyPasteButtonRightClicked(sectionId, buttonId){
+    let event = window.event;
     event.preventDefault();
     let mouseX = event.clientX;
     let mouseY = event.clientY;
@@ -407,7 +408,7 @@ function exportItems(){
 function favCellClicked(buttonId){
     closeDialog();
     let favoriteButtons = JSON.parse(localStorage.favoriteButtons);
-    if(event.which === 1){
+    if(window.event.which === 1){
         let pasteValue = favoriteButtons[buttonId].pasteValue;
         let textarea = document.createElement(`textarea`);
         let buttonName = favoriteButtons[buttonId].buttonName;
@@ -416,7 +417,7 @@ function favCellClicked(buttonId){
         textarea.value = pasteValue;
         body.appendChild(textarea);
         textarea.select();
-        document.execCommand(`copy`);
+        navigator.clipboard.writeText(pasteValue);
         body.removeChild(textarea);
         popup.innerText =buttonNameText;
         popup.className = `show`;
@@ -427,6 +428,7 @@ function favCellClicked(buttonId){
 };
 
 function favRightClicked(buttonId){
+    let event = window.event;
     event.preventDefault();
     let mouseX = window.innerWidth - event.clientX;
     let mouseY = event.clientY - 40;
@@ -630,8 +632,8 @@ function saveButton(){
         loadFavNav();
         loadSideNav();
         closeDialog();
-        activeSectionID = -1;
-        activeButtonID = -1;
+        activeSectionID = - 1;
+        activeButtonID = - 1;
     }
 
 
@@ -640,20 +642,16 @@ function saveButton(){
 function showHelp(){
     closeDialog();
     helpDialog.show();
-    // helpDialog2.close();
 };
 
 function showHelp2(){
     closeDialog();
     helpDialog2.show();
-    // helpDialog.close();
-    // helpDialog3.close();
 };
 
 function showHelp3(){
     closeDialog();
     helpDialog3.show();
-    // helpDialog2.close();
 };
 
 function settingsMenu(){
@@ -740,7 +738,7 @@ window.onresize = function(){
 
 function isMobile(){
     if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile/ig.test(navigator.userAgent)){
-        document.body.innerHTML = `<h1>This site is not desiged to be functional from a mobile device, please return using a desktop computer to use this tool.</h1>`;
+        body.innerHTML = `<h1>This site is not desiged to be functional from a mobile device, please return using a desktop computer to use this tool.</h1>`;
 
         let options = {
             alignItems: `center`,
@@ -750,7 +748,7 @@ function isMobile(){
         }
 
         for(let k in options){
-            document.body.style[k] = options[k];
+            body.style[k] = options[k];
         }
 
         return true;
