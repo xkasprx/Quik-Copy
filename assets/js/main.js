@@ -749,7 +749,7 @@ function isMobile(){
             display: `flex`,
             paddingLeft: `25%`,
             paddingRight: `25%`,
-            fontSize: `2vw`,
+            fontSize: `3vw`,
             width: `40%`,
         }
 
