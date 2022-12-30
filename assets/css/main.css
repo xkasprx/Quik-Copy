@@ -147,7 +147,7 @@ hr{
 	--cursor: pointer;
 }
 
-.reorderTextInput {
+.reorderTextInput{
 	width: 25px;
 	float: right;
 	margin-right: 20px;
@@ -479,7 +479,7 @@ hr{
 
 #settingsbutton:hover{
 	transform: rotate(45deg);
-	color: var(--hover-color)
+	color: var(--hover-color);
 }
 
 #sidenav{

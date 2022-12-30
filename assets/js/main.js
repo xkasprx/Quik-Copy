@@ -1,4 +1,4 @@
-let versionText = `3.3.0`;
+let versionText = `3.3.1`;
 
 let body = document.body;
 let activeButtonID;
@@ -49,12 +49,12 @@ let version = document.getElementById(`version`);
 let brandingPosition = document.getElementById(`branding`);
 
 let editSubmitButton = document.querySelector(`#editSubmitButton`);
-let allDialogs = document.querySelectorAll('dialog');
+let allDialogs = document.querySelectorAll(`dialog`);
 
 let deleteAllString = `THIS WILL DELETE ALL OF YOUR SECTIONS AND THEIR BUTTONS!\n\nClick OK if you are sure you want to delete all sections and all of their buttons?`;
 
 document.addEventListener(`click`, (e) => {
-    for (i = 0; i < allDialogs.length; i++){
+    for(i = 0; i < allDialogs.length; i++){
         let dialog = allDialogs[i];
         let target = e.target;
         let hrElement = target.outerHTML === `<hr>`;
@@ -236,7 +236,7 @@ function createButton(){
     let allSections = JSON.parse(localStorage.allSections);
     let newButtonName = buttonNameInput.value;
     let newButtonDescription = JSON.stringify(buttonPasteValue.value);
-    
+
     if(!newButtonName.length && !buttonPasteValue.value.length){
         alert(`The name and value fields must contain text.`);
     }else if(!newButtonName.length){
@@ -280,20 +280,20 @@ function deleteButton(){
 
     if(confirm(`Click OK to confirm deletion of the ${button.buttonName} button?`)){
         delete button;
-    
+
         for(let i = 0; i < favoriteButtons.length; i++){
             let existingFav = favoriteButtons[i];
-    
+
             if(existingFav.sectionId === activeButton.section && existingFav.buttonId === activeButton.button){
                 delete favoriteButtons[i];
                 favoriteButtons.splice(i, 1);
             }
         }
-    
+
         allSections[activeButton.section].sectionButtons.splice(activeButton.button, 1);
         localStorage.allSections = JSON.stringify(allSections);
         localStorage.favoriteButtons = JSON.stringify(favoriteButtons);
-    
+
         localStorage.removeItem(`activeButton`);
         loadSections();
         loadFavNav();
@@ -317,13 +317,13 @@ function deleteSection(sectionId){
     let favoriteButtons = JSON.parse(localStorage.favoriteButtons);
     let confirmText = `Click OK to confirm deletion of the section ${allSections[sectionId].sectionName} and all of its buttons?`;
 
-    
+
     if(confirm(confirmText)){
         delete allSections[sectionId];
         allSections.splice(sectionId, 1);
         localStorage.allSections = JSON.stringify(allSections);
         let originalLength = favoriteButtons.length;
-        for (let i = 0; i < originalLength; i++){
+        for(let i = 0; i < originalLength; i++){
             if(Number(favoriteButtons[i].sectionId) === sectionId){
                 delete favoriteButtons[i];
                 favoriteButtons.splice(i, 1);
@@ -364,7 +364,7 @@ function exportItems(){
     if(!localStorage.allSections || localStorage.allSections != `[]`){
         closeDialog();
         let c = document.querySelectorAll(`.checkbox`);
-        for (let i = 0; i < c.length; i++){
+        for(let i = 0; i < c.length; i++){
             c[i].remove();
         }
         exportDialog.style.display = `block`;
@@ -390,12 +390,12 @@ function exportItems(){
         checkbox.addEventListener(`change`, function(){
             if(this.checked){
                 let b = document.querySelectorAll(`input[name=section]`);
-                for (let i = 0; i < b.length; i++){
+                for(let i = 0; i < b.length; i++){
                     b[i].checked = true;
                 }
             }else{
                 let b = document.querySelectorAll(`input[name=section]`);
-                for (let i = 0; i < b.length; i++){
+                for(let i = 0; i < b.length; i++){
                     b[i].checked = false;
                 }
             }
@@ -452,11 +452,11 @@ function loadFavNav(){
 
     favNavEmpty.style.visibility = favoriteButtons.length >= 1 ? `hidden` : `visible`;
 
-    while (favNavCells.firstChild){
+    while(favNavCells.firstChild){
         favNavCells.removeChild(favNavCells.firstChild);
     }
 
-    for (let i = 0; i < favoriteButtons.length; i++){
+    for(let i = 0; i < favoriteButtons.length; i++){
         let favNavCell = document.createElement(`p`);
         favNavCell.innerText = favoriteButtons[i].buttonName;
         favNavCell.title = favoriteButtons[i].pasteValue;
@@ -481,11 +481,11 @@ function loadSections(){
 
     allSections.length >= 5 ? midNav.style.overflowY = `visible` : midNav.style.webkit = `hidden`;
 
-    while (midContainer.firstChild){
+    while(midContainer.firstChild){
         midContainer.removeChild(midContainer.firstChild);
     }
 
-    for (let i = 0; i < allSections.length; i++){
+    for(let i = 0; i < allSections.length; i++){
         let sectionDiv = document.createElement(`div`);
         let sectionName = document.createElement(`h3`);
         let deleteSection = document.createElement(`button`);
@@ -522,7 +522,7 @@ function loadSections(){
             sectionDiv.appendChild(h4);
         }
 
-        for (let j = 0; j < allSections[i].sectionButtons.length; j++){
+        for(let j = 0; j < allSections[i].sectionButtons.length; j++){
             let button = document.createElement(`button`);
             button.innerText = allSections[i].sectionButtons[j].buttonName;
             button.id = `sec${i}but${j}`;
@@ -539,11 +539,11 @@ function loadSections(){
 function loadSideNav(){
     let allSections = JSON.parse(localStorage.allSections);
 
-    while (sideNavCells.firstChild){
+    while(sideNavCells.firstChild){
         sideNavCells.removeChild(sideNavCells.firstChild);
     }
 
-    for (let i = 0; i < allSections.length; i++){
+    for(let i = 0; i < allSections.length; i++){
         let a = document.createElement(`a`);
         a.href = `#section${i}`;
         let innerDiv = document.createElement(`div`);
@@ -556,7 +556,7 @@ function loadSideNav(){
 
 function promptEditButton(){
     closeDialog();
-    editButtonDialog.style.display = 'block';
+    editButtonDialog.style.display = `block`;
 };
 
 function promptNewButton(sectionId){
@@ -586,7 +586,7 @@ function restyleElements(){
     for(let i = 0; i < midContainer.children.length; i++){
         let child = midContainer.children[i];
 
-        for (let j = 0; j < child.children.length; j++){
+        for(let j = 0; j < child.children.length; j++){
             let button = child.children[j];
             button.style.fontSize = window.innerWidth > 1215 ? `15px` : `12px`;
         }
@@ -616,10 +616,10 @@ function saveButton(){
         allSections[activeSectionID].sectionButtons[activeButtonID].buttonName = newButtonName;
         allSections[activeSectionID].sectionButtons[activeButtonID].pasteValue = newButtonValue;
         localStorage.allSections = JSON.stringify(allSections);
-    
+
         for(let i = 0; i < currentFavorites.length; i++){
             let existingFav = currentFavorites[i];
-    
+
             if(existingFav.sectionId === activeSectionID && existingFav.buttonId === activeButtonID){
                 existingFav.buttonName = newButtonName;
                 existingFav.pasteValue = newButtonValue;
@@ -627,7 +627,7 @@ function saveButton(){
         }
 
         localStorage.favoriteButtons = JSON.stringify(currentFavorites);
-    
+
         loadSections();
         loadFavNav();
         loadSideNav();
@@ -670,7 +670,7 @@ function showSectionReorder(){
         reorderSectionsDialog.style.display = `block`;
 
         let s = document.querySelectorAll(`.sectionElement`);
-        for (var j = 0; j < s.length; j++){
+        for(var j = 0; j < s.length; j++){
             s[j].remove();
         }
         let allSections = JSON.parse(localStorage.allSections);
@@ -727,7 +727,7 @@ window.onload = function(){
     currentStatus === `enabled` ? enableLightMode() : localStorage.lightMode = `disabled`;
     themeButton.className = currentStatus === `enabled` ? `fas fa-sun` : `fas fa-moon`;
     reorderSectionsDialog.innerHTML = reorderSectionsDialog.innerHTML.replace(`XYZ`, JSON.parse(localStorage.allSections).length);
-    
+
     version.innerText = version.innerText.replace(`Unknown`, versionText);
     copyright.innerHTML = copyright.innerHTML.replace(`YEARS`, `&copy; 2020 ~ ${new Date().getFullYear()}`);
 };
