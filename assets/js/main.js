@@ -745,6 +745,8 @@ function isMobile(){
             justifyContent: `center`,
             height: `100vh`,
             display: `flex`,
+            marginLeft: `10%`,
+            marginRight: `10%`,
         }
 
         for(let k in options){
