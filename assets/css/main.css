@@ -607,8 +607,8 @@ hr{
 	z-index: 5;
 	color: var(--color1);
 	font-weight: 600;
-	width: 30rem;
-	bottom: 5rem;
+	width: 40rem;
+	bottom: 3rem;
 }
 
 @-webkit-keyframes fadein{

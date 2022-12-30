@@ -1,4 +1,4 @@
-let versionText = `3.2.7`;
+let versionText = `3.2.8`;
 
 let body = document.body;
 let activeButtonID;
