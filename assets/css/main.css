@@ -223,6 +223,7 @@ hr{
 	color: var(--color4);
 }
 
+#createsectiondialog input,
 #createbuttondialog input{
 	margin-left: 20px;
 	font-weight: 400;
@@ -607,7 +608,7 @@ hr{
 	color: var(--color1);
 	font-weight: 600;
 	width: 30rem;
-	bottom: 25px;
+	bottom: 5rem;
 }
 
 @-webkit-keyframes fadein{

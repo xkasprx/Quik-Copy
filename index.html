@@ -97,40 +97,43 @@
         </div>
         <dialog id="createsectiondialog">
             <p>Section Name</p>
-            <input type="text" name="sectionNameInput" id="sectionNameInput" hint="Name" autocomplete="off"></input>
+            <input type="text" name="sectionNameInput" id="sectionNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1"></input>
             <hr>
             <button type="submit" onclick="createSection()" id="sectionSubmit">Submit</button>
             <button class="cancel" onclick="closeDialog()">Cancel</button>
         </dialog>
         <dialog id="createbuttondialog">
             <p>Button Name</p>
-            <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off"></input>
+            <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1"></input>
             <hr>
             <p>Button Value</p>
-            <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off"></textarea>
+            <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off" minlength="1"></textarea>
             <br>
             <button onclick="createButton()">Submit</button>
             <button class="cancel" onclick="closeDialog()">Cancel</button>
         </dialog>
         <dialog id="editbuttondialog">
             <p>New Button Name</p>
-            <input type="text" name="editNameInput" id="editNameInput" hint="Name"autocomplete="off"></input>
+            <input type="text" name="editNameInput" id="editNameInput" hint="Name"autocomplete="off" maxlength="30" minlength="1"></input>
             <br>
             <p>New Button Value</p>
-            <textarea name="editPasteValue" id="editPasteValue" hint="Paste Value"autocomplete="off"></textarea>
+            <textarea name="editPasteValue" id="editPasteValue" hint="Paste Value"autocomplete="off" minlength="1"></textarea>
             <br>
             <button class="cancel" onclick="closeDialog()">Cancel</button>
-            <button id="editSubmitButton">Submit</button>
+            <button id="editSubmitButton" onclick="saveButton()">Submit</button>
         </dialog>
         <dialog id="privacydialog">
-            <p>Privacy</p>
+            <h1>Privacy</h1>
             <hr>
-            <p>A full view of the privacy policy can be viewed <a href="https://dmskaspr.com/#privacy" id="agreement">here</a>.</p>
+            <p>All button information is stored locally on your device in the form of a cookie, and is not transmitted to our servers. A full view of the privacy policy can be viewed <a href="https://dmskaspr.com/#privacy" id="agreement">here</a>.</p>
             <hr>
             <button class="cancel" onclick="closeDialog()">Close</button>
         </dialog>
         <dialog id="helpdialog">
-            <p>This tool allows you to create buttons to quickly copy and paste frequently used text. You simply create a button and when you need that text again, just click the corresponding button to "Quik Copy" it.</p>
+            <h1>Help & How To</h1>
+            <p>This tool allows you to create buttons to quickly copy and paste frequently used text. You simply create a button and when you need that text again, just click the corresponding button to "Quik Copy" it.
+            </p>
+            <p>All button information is stored locally on your device in the form of a cookie, and is not transmitted to our servers. It is advised to have a backup (export) from this site, in the event that you need to ever clear your cookies. Instructions on page 3.</p>
             <hr>
             <p>Create a Section</p>
             <hr>
@@ -185,11 +188,12 @@
         <dialog id="reorderSectionsDialog">
             <p>Reorder sections from 1 to XYZ</p>
             <div id="reorderSections"></div>
-            <button onclick="confirmSectionReorder()">Confirm</button>
+            <button class="back" onclick="settingsMenu()">Back</button>
             <button class="cancel" onclick="closeDialog()">Cancel</button>
+            <button onclick="confirmSectionReorder()">Confirm</button>
         </dialog>
         <dialog id="settingsdialog">
-            <p>Settings</p>
+            <h1>Settings</h1>
             <br>
             <hr>
             <p>Reorder Sections</p>
@@ -214,6 +218,7 @@
             <script src="/assets/js/import.js"></script>
             <br>
             <button class="cancel" onclick="closeDialog()">Cancel</button>
+            <button class="back" onclick="settingsMenu()">Back</button>
         </dialog>
         <dialog id="exportdialog">
             <p>Export which sections?</p>
@@ -221,9 +226,10 @@
             <div id="exportcheckboxes"></div>
             <button onclick="confirmExport()">Confirm</button>
             <button class="cancel" onclick="closeDialog()">Cancel</button>
+            <button class="back" onclick="settingsMenu()">Back</button>
         </dialog>
         <dialog id="termsdialog">
-            <p>Terms and Conditions</p>
+            <h1>Terms and Conditions</h1>
             <hr>
             <p>A full view of the terms and conditions can be viewed <a href="https://dmskaspr.com/#agreement" id="agreement">here</a>.</p>
             <hr>

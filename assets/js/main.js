@@ -1,4 +1,4 @@
-let versionText = `3.2.6`;
+let versionText = `3.2.7`;
 
 let body = document.body;
 let activeButtonID;
@@ -107,6 +107,9 @@ function closeDialog(){
     helpDialog2.close();
     helpDialog3.close();
     privacyDialog.close();
+    termsDialog.close();
+    editButtonDialog.style.display = `none`;
+    reorderSectionsDialog.style.display = `none`;
     settingsDialog.style.display = `none`;
     importDialog.style.display = `none`;
     exportDialog.style.display = `none`;
@@ -229,57 +232,73 @@ function copyPasteButtonRightClicked(sectionId, buttonId){
 };
 
 function createButton(){
-    closeDialog();
     let allSections = JSON.parse(localStorage.allSections);
     let newButtonName = buttonNameInput.value;
     let newButtonDescription = JSON.stringify(buttonPasteValue.value);
-    let newButton = JSON.parse(`{"buttonName": "${newButtonName}", "pasteValue": ${newButtonDescription}}`);
-    allSections[parseInt(localStorage.activeSection)].sectionButtons.push(newButton);
-    localStorage.allSections = JSON.stringify(allSections);
-    loadSections();
-    buttonNameInput.value = ``;
-    buttonPasteValue.value = ``;
-    localStorage.removeItem(`activeSection`);
+    
+    if(!newButtonName.length && !buttonPasteValue.value.length){
+        alert(`The name and value fields must contain text.`);
+    }else if(!newButtonName.length){
+        alert(`The name field must contain text.`);
+    }else if(!buttonPasteValue.value.length){
+        alert(`The value field must contain text.`);
+    }else{
+        closeDialog();
+        let newButton = JSON.parse(`{"buttonName": "${newButtonName}", "pasteValue": ${newButtonDescription}}`);
+        allSections[parseInt(localStorage.activeSection)].sectionButtons.push(newButton);
+        localStorage.allSections = JSON.stringify(allSections);
+        loadSections();
+        buttonNameInput.value = ``;
+        buttonPasteValue.value = ``;
+        localStorage.removeItem(`activeSection`);
+    }
 };
 
 function createSection(){
-    closeDialog();
     let allSections = JSON.parse(localStorage.allSections);
     let newSectionName = sectionNameInput.value;
-    let newSection = JSON.parse(`{"sectionName": "${newSectionName}","sectionButtons": []}`);
-    allSections.push(newSection);
-    localStorage.allSections = JSON.stringify(allSections);
-    midEmpty.style.visibility = `hidden`;
-    loadSections();
-    loadSideNav();
-    sectionNameInput.value = ``;
+    if(!newSectionName.length){
+        alert(`The name field must contain text.`);
+    }else{
+        closeDialog();
+        let newSection = JSON.parse(`{"sectionName": "${newSectionName}","sectionButtons": []}`);
+        allSections.push(newSection);
+        localStorage.allSections = JSON.stringify(allSections);
+        midEmpty.style.visibility = `hidden`;
+        loadSections();
+        loadSideNav();
+        sectionNameInput.value = ``;
+    }
 };
 
 function deleteButton(){
     let allSections = JSON.parse(localStorage.allSections);
     let activeButton = JSON.parse(localStorage.activeButton);
     let favoriteButtons = JSON.parse(localStorage.favoriteButtons);
+    let button = allSections[activeButton.section].sectionButtons[activeButton.button];
 
-    delete allSections[activeButton.section].sectionButtons[activeButton.button];
-
-    for(let i = 0; i < favoriteButtons.length; i++){
-        let existingFav = favoriteButtons[i];
-
-        if(existingFav.sectionId === activeButton.section && existingFav.buttonId === activeButton.button){
-            delete favoriteButtons[i];
-            favoriteButtons.splice(i, 1);
+    if(confirm(`Click OK to confirm deletion of the ${button.buttonName} button?`)){
+        delete button;
+    
+        for(let i = 0; i < favoriteButtons.length; i++){
+            let existingFav = favoriteButtons[i];
+    
+            if(existingFav.sectionId === activeButton.section && existingFav.buttonId === activeButton.button){
+                delete favoriteButtons[i];
+                favoriteButtons.splice(i, 1);
+            }
         }
+    
+        allSections[activeButton.section].sectionButtons.splice(activeButton.button, 1);
+        localStorage.allSections = JSON.stringify(allSections);
+        localStorage.favoriteButtons = JSON.stringify(favoriteButtons);
+    
+        localStorage.removeItem(`activeButton`);
+        loadSections();
+        loadFavNav();
+        loadSideNav();
+        closeDialog();
     }
-
-    allSections[activeButton.section].sectionButtons.splice(activeButton.button, 1);
-    localStorage.allSections = JSON.stringify(allSections);
-    localStorage.favoriteButtons = JSON.stringify(favoriteButtons);
-
-    localStorage.removeItem(`activeButton`);
-    loadSections();
-    loadFavNav();
-    loadSideNav();
-    closeDialog();
 };
 
 function deleteFavorite(){
@@ -295,7 +314,7 @@ function deleteFavorite(){
 function deleteSection(sectionId){
     let allSections = JSON.parse(localStorage.allSections);
     let favoriteButtons = JSON.parse(localStorage.favoriteButtons);
-    let confirmText = `Are you sure you want to delete the section ${allSections[sectionId].sectionName} and all of its buttons?`;
+    let confirmText = `Click OK to confirm deletion of the section ${allSections[sectionId].sectionName} and all of its buttons?`;
 
     
     if(confirm(confirmText)){
@@ -324,8 +343,6 @@ function disableLightMode(){
 function editButton(){
     let allSections = JSON.parse(localStorage.allSections);
     let activeButton = JSON.parse(localStorage.activeButton);
-    let newButtonName = buttonNameInput.value;
-    let newButtonDescription = JSON.stringify(buttonPasteValue.value);
 
     activeSectionID = activeButton.section;
     activeButtonID = activeButton.button;
@@ -335,7 +352,6 @@ function editButton(){
     promptEditButton();
     editNameInput.value = oldButtonName;
     editPasteValue.value = oldButtonValue;
-    editSubmitButton.setAttribute('onclick', 'saveButton()');
 };
 
 function enableLightMode(){
@@ -423,22 +439,6 @@ function favRightClicked(buttonId){
         localStorage.removeItem(`activeFav`);
     });
 }
-
-function showHelp(){
-    helpDialog.show();
-    helpDialog2.close();
-};
-
-function showHelp2(){
-    helpDialog2.show();
-    helpDialog.close();
-    helpDialog3.close();
-};
-
-function showHelp3(){
-    helpDialog3.show();
-    helpDialog2.close();
-};
 
 function importItems(){
     closeDialog();
@@ -603,27 +603,57 @@ function saveButton(){
     let currentFavorites = JSON.parse(localStorage.favoriteButtons);
     newButtonName = editNameInput.value;
     newButtonValue = editPasteValue.value;
-    allSections[activeSectionID].sectionButtons[activeButtonID].buttonName = newButtonName;
-    allSections[activeSectionID].sectionButtons[activeButtonID].pasteValue = newButtonValue;
-    localStorage.allSections = JSON.stringify(allSections);
 
-    for(let i = 0; i < currentFavorites.length; i++){
-        let existingFav = currentFavorites[i];
-
-        if(existingFav.sectionId === activeSectionID && existingFav.buttonId === activeButtonID){
-            existingFav.buttonName = newButtonName;
-            existingFav.pasteValue = newButtonValue;
+    if(!newButtonName.length && !newButtonValue.length){
+        alert(`The name and value fields must not be blank.`);
+    }else if(!newButtonName.length){
+        alert(`The name field must not be blank.`);
+    }else if(!newButtonValue.length){
+        alert(`The value field must not be blank.`);
+    }else{
+        allSections[activeSectionID].sectionButtons[activeButtonID].buttonName = newButtonName;
+        allSections[activeSectionID].sectionButtons[activeButtonID].pasteValue = newButtonValue;
+        localStorage.allSections = JSON.stringify(allSections);
+    
+        for(let i = 0; i < currentFavorites.length; i++){
+            let existingFav = currentFavorites[i];
+    
+            if(existingFav.sectionId === activeSectionID && existingFav.buttonId === activeButtonID){
+                existingFav.buttonName = newButtonName;
+                existingFav.pasteValue = newButtonValue;
+            }
         }
+
+        localStorage.favoriteButtons = JSON.stringify(currentFavorites);
+    
+        loadSections();
+        loadFavNav();
+        loadSideNav();
+        closeDialog();
+        activeSectionID = -1;
+        activeButtonID = -1;
     }
 
-    localStorage.favoriteButtons = JSON.stringify(currentFavorites);
 
-    loadSections();
-    loadFavNav();
-    loadSideNav();
+};
+
+function showHelp(){
     closeDialog();
-    activeSectionID = -1;
-    activeButtonID = -1;
+    helpDialog.show();
+    // helpDialog2.close();
+};
+
+function showHelp2(){
+    closeDialog();
+    helpDialog2.show();
+    // helpDialog.close();
+    // helpDialog3.close();
+};
+
+function showHelp3(){
+    closeDialog();
+    helpDialog3.show();
+    // helpDialog2.close();
 };
 
 function settingsMenu(){
@@ -632,6 +662,7 @@ function settingsMenu(){
 };
 
 function showPrivacy(){
+    closeDialog();
     privacyDialog.show();
 };
 
@@ -658,6 +689,7 @@ function showSectionReorder(){
 };
 
 function showTerms(){
+    closeDialog();
     termsDialog.show();
 };
 
