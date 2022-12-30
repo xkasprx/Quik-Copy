@@ -51,7 +51,7 @@ let brandingPosition = document.getElementById(`branding`);
 let editSubmitButton = document.querySelector(`#editSubmitButton`);
 let allDialogs = document.querySelectorAll('dialog');
 
-let deleteAllString = `THIS WILL DELETE ALL OF YOUR SECTIONS AND THEIR BUTTONS!\n\nAre you sure you want to delete all sections and all of their buttons?`;
+let deleteAllString = `THIS WILL DELETE ALL OF YOUR SECTIONS AND THEIR BUTTONS!\n\nClick OK if you are sure you want to delete all sections and all of their buttons?`;
 
 document.addEventListener(`click`, (e) => {
     for (i = 0; i < allDialogs.length; i++){
