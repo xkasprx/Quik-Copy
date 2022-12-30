@@ -1,4 +1,4 @@
-let versionText = `3.2.5`;
+let versionText = `3.2.6`;
 
 let body = document.body;
 let activeButtonID;
@@ -9,6 +9,7 @@ let oldButtonName;
 let oldButtonValue;
 
 let lightMode = localStorage.getItem(`lightMode`);
+let instructions = localStorage.getItem(`instructions`);
 
 let buttonNameInput = document.getElementById(`buttonNameInput`);
 let buttonPasteValue = document.getElementById(`buttonPasteValue`);
@@ -669,7 +670,7 @@ function toggleTheme(){
 
 window.onload = function(){
     this.restyleElements();
-    this.isMobile();
+    let mobile = this.isMobile();
     if(localStorage.allSections && localStorage.allSections != `[]`){
         this.loadSections();
         this.loadSideNav();
@@ -684,6 +685,11 @@ window.onload = function(){
     }else{
         localStorage.favoriteButtons = `[]`;
         favNavEmpty.style.visibility = `visible`;
+    }
+
+    if(!instructions && !mobile){
+        showHelp();
+        localStorage.instructions = true;
     }
 
     let currentStatus = localStorage.lightMode;
@@ -701,7 +707,22 @@ window.onresize = function(){
 };
 
 function isMobile(){
-    if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini/.test(navigator.userAgent)){
-        document.body.innerHTML = `<center><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><h1>This site is not desiged to be functional from a mobile device, please return using a desktop computer to use this tool.</h1><center>`;
+    if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile/ig.test(navigator.userAgent)){
+        document.body.innerHTML = `<h1>This site is not desiged to be functional from a mobile device, please return using a desktop computer to use this tool.</h1>`;
+
+        let options = {
+            alignItems: `center`,
+            justifyContent: `center`,
+            height: `100vh`,
+            display: `flex`,
+        }
+
+        for(let k in options){
+            document.body.style[k] = options[k];
+        }
+
+        return true;
     }
+
+    return false;
 };
