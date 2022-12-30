@@ -738,20 +738,24 @@ window.onresize = function(){
 
 function isMobile(){
     if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile/ig.test(navigator.userAgent)){
-        body.innerHTML = `<h1>This site is not desiged to be functional from a mobile device, please return using a desktop computer to use this tool.</h1>`;
+        body.innerHTML = `<h1 id="mobile">This site is not desiged to be functional from a mobile device.<wbr> Please return using a desktop computer to use this tool.</h1>`;
+
+        let mobile = document.getElementById(`mobile`);
 
         let options = {
             alignItems: `center`,
-            justifyContent: `center`,
-            height: `100vh`,
+            textAlign: `center`,
+            height: `90vh`,
             display: `flex`,
-            marginLeft: `10%`,
-            marginRight: `10%`,
+            paddingLeft: `7%`,
+            fontSize: `2vw`,
+            width: `40%`,
         }
 
         for(let k in options){
-            body.style[k] = options[k];
+            mobile.style[k] = options[k];
         }
+
 
         return true;
     }
