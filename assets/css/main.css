@@ -617,7 +617,7 @@ hr{
 	bottom: 3rem;
 }
 
-@media screen and (max-width: 896px) {
+@media screen and (max-width: 480px) {
 	h3, h4{
 		font-size: small;
 		
