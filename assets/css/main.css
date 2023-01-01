@@ -444,7 +444,6 @@ hr{
 #popup{
 	visibility: hidden;
 	min-width: 250px;
-	margin-left: -125px;
 	background-color: var(--color1);
 	color: var(--color6);
 	text-align: center;
@@ -452,7 +451,7 @@ hr{
 	padding: 16px;
 	position: fixed;
 	z-index: 200;
-	left: 50%;
+	left: 45%;
 	bottom: 30px;
 }
 
