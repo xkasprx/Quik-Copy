@@ -738,8 +738,8 @@ function isMobile(){
     let userAgent = navigator.userAgent;
 
     let mobileText = `<br><h1>This site is not desiged to be functional from a mobile device.<br></h1>`;
-    let appleText = `<br><h1>Please download the app from the App Store.</h1><br><a href="/"><img id="apple" src="/assets/images/apple-badge.svg"></a><br>In development<br>`;
-    let androidText = `<br><h1>Please download the app from the App Store.</h1><br><a href="/"><img id="google" src="/assets/images/google-badge.svg"></a><br>In development<br>`
+    let appleText = `<br><h1>Please download the app from the Apple App Store.</h1><br><a href="/"><img id="apple" src="/assets/images/apple-badge.svg"></a><br>In development<br>`;
+    let androidText = `<br><h1>Please download the app from the Google Play Store.</h1><br><a href="/"><img id="google" src="/assets/images/google-badge.svg"></a><br>In development<br>`
     let otherText = `<h1>Please return from a computer to use this tool.</h1>`;
 
     if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox/ig.test(userAgent)){
