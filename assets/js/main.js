@@ -635,8 +635,6 @@ function saveButton(){
         activeSectionID = - 1;
         activeButtonID = - 1;
     }
-
-
 };
 
 function showHelp(){
@@ -750,7 +748,7 @@ function isMobile(){
             paddingLeft: `25%`,
             paddingRight: `25%`,
             fontSize: `3vw`,
-            width: `40%`,
+            width: `50%`,
         }
 
         for(let k in options){
