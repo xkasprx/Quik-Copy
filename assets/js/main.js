@@ -1,4 +1,4 @@
-let versionText = `3.3.5`;
+let versionText = `3.3.6`;
 
 let body = document.body;
 let activeButtonID;
@@ -735,29 +735,21 @@ window.onresize = function(){
 };
 
 function isMobile(){
-    if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile/ig.test(navigator.userAgent)){
-        body.innerHTML = `<h1 id="mobile">This site is not desiged to be functional from a mobile device.<wbr> Please return using a desktop computer to use this tool.</h1>`;
+    let userAgent = navigator.userAgent;
 
-        let mobile = document.getElementById(`mobile`);
+    let mobileText = `<br><h1>This site is not desiged to be functional from a mobile device.<br></h1>`;
+    let appleText = `<br><h1>Please download the app from the App Store.</h1><br><a href="/"><img id="apple" src="/assets/images/apple-badge.svg"></a><br>In development<br>`;
+    let androidText = `<br><h1>Please download the app from the App Store.</h1><br><a href="/"><img id="google" src="/assets/images/google-badge.svg"></a><br>In development<br>`
+    let otherText = `<h1>Please return from a computer to use this tool.</h1>`;
 
-        let options = {
-            alignItems: `center`,
-            textAlign: `center`,
-            height: `90vh`,
-            display: `flex`,
-            paddingLeft: `25%`,
-            paddingRight: `25%`,
-            fontSize: `3vw`,
-            width: `50%`,
-        }
+    if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox/ig.test(userAgent)){
+        let isApple = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+        let isAndroid = /android/i.test(userAgent) && !/windows phone/i.test(userAgent);
+        let needsApp = isApple ? appleText : isAndroid ? androidText : otherText;
 
-        for(let k in options){
-            mobile.style[k] = options[k];
-        }
-
+        body.innerHTML = `<div id="mobile">${mobileText}${needsApp}</div>`;
 
         return true;
     }
-
     return false;
 };

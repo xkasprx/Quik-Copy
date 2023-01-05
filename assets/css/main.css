@@ -20,7 +20,6 @@
 body, html{
 	margin: 0;
 	padding: 0;
-	min-width: 1140px;
 	font-family: var(--font);
 	overflow-x: hidden;
 	background-color: var(--main-bg-color);
@@ -522,6 +521,26 @@ hr{
 	max-height: 900px;
 	overflow-y: scroll;
 	overflow-x: hidden;
+}
+
+#mobile{
+	text-align: center;
+	padding-left: 25%;
+	padding-right: 25%; 
+	width: 50%;
+	margin-top: 15rem;
+}
+
+#apple{
+	width: 25rem;
+	padding: 5px;
+	filter: brightness(20%);
+}
+
+#goole{
+	width: 25rem;
+	padding: 5px;
+	filter: brightness(20%);
 }
 
 #themebutton{
