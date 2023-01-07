@@ -10,7 +10,7 @@
 
 	function onReaderLoad(e){
 		try{
-			closeImport();
+			closeDialog();
 			let allSections = JSON.parse(localStorage.allSections);
 			JSON.parse(e.target.result).forEach(x =>{
 				let newName = JSON.parse(x).sectionName;

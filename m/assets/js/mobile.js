@@ -56,15 +56,6 @@ function clearAll(){
     if(!localStorage.allSections || localStorage.allSections != `[]`){
         let deleteAllString = `THIS WILL DELETE ALL OF YOUR SECTIONS AND THEIR BUTTONS!\n\nClick OK if you are sure you want to delete all sections and all of their buttons?`;
 
-        informationPage.style.display = `none`;
-        newButtonPage.style.display = `none`;
-        midEmptyPage.style.display = `none`;
-        editButtonPage.style.display = `none`;
-        settingsPage.style.display = `none`;
-        reorderSectionPage.style.display = `none`;
-        importPage.style.display = `none`;
-        exportPage.style.display = `none`;
-
         if(confirm(deleteAllString)){
             localStorage.clear();
             localStorage.allSections = `[]`;
@@ -72,7 +63,7 @@ function clearAll(){
             loadButtons();
         }
 
-        buttonsPage.style.display = `block`;
+        closeDialog()
     }else{
         alert(`There are no sections to delete!`);
     }
@@ -81,33 +72,15 @@ function clearAll(){
 function clearInput(){
     buttonNameInput.value = ``;
     buttonPasteValue.value = ``;
-    buttonsPage.style.display = `block`;
-    informationPage.style.display = `none`;
-    newButtonPage.style.display = `none`;
-    midEmptyPage.style.display = `none`;
-    editButtonPage.style.display = `none`;
-    settingsPage.style.display = `none`;
-    reorderSectionPage.style.display = `none`;
-    importPage.style.display = `none`;
-    exportPage.style.display = `none`;
+
+    closeDialog()
 };
 
 function closeEdit(){
     oldButtonName = ``;
     oldButtonValue = ``;
-    informationPage.style.display = `none`;
-    newButtonPage.style.display = `none`;
-    editButtonPage.style.display = `none`;
-    settingsPage.style.display = `none`;
-    reorderSectionPage.style.display = `none`;
-    importPage.style.display = `none`;
-    exportPage.style.display = `none`;    if(localStorage.allSections && localStorage.allSections != `[]`){
-        buttonsPage.style.display = `block`;
-        midEmptyPage.style.display = `none`;
-    }else{
-        midEmptyPage.style.display = `block`;
-        buttonsPage.style.display = `none`;
-    }
+
+    closeDialog()
 }
 
 function closeDialog(){
@@ -120,6 +93,8 @@ function closeDialog(){
     reorderSectionPage.style.display = `none`;
     importPage.style.display = `none`;
     exportPage.style.display = `none`;
+    orientationPage.style.display = `none`;
+
     if(localStorage.allSections && localStorage.allSections != `[]`){
         buttonsPage.style.display = `block`;
         midEmptyPage.style.display = `none`;
@@ -196,7 +171,7 @@ function confirmSectionReorder(){
     if(completed){
         localStorage.allSections = JSON.stringify(newSections);
         loadButtons();
-        reorderSectionPage.style.display = `none`;
+        closeDialog()
         location.reload();
     }
 };
@@ -374,7 +349,7 @@ function importItems(){
 
 function isMobile(){	
 	if(!/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox/ig.test(userAgent)){
-        return location.href = `/`;
+        // return location.href = `/`;
     }
     return true;
 };
@@ -382,13 +357,7 @@ function isMobile(){
 function loadButtons(){
     let allSections = JSON.parse(localStorage.allSections);
 
-    if(!localStorage.allSections || localStorage.allSections === `[]`){
-        midEmptyPage.style.display = `block`;
-        buttonsPage.style.display = `none`;
-    }else{
-        midEmptyPage.style.display = `none`;
-        buttonsPage.style.display = `block`;
-    }
+    closeDialog()
 
     while(buttonsPage.firstChild){
         buttonsPage.removeChild(buttonsPage.firstChild);
@@ -445,14 +414,7 @@ function loadHome(){
 
 function promptEditDialog(){
     buttonsPage.style.display = `none`;
-    informationPage.style.display = `none`;
-    newButtonPage.style.display = `none`;
-    midEmptyPage.style.display = `none`;
     editButtonPage.style.display = `block`;
-    settingsPage.style.display = `none`;
-    reorderSectionPage.style.display = `none`;
-    importPage.style.display = `none`;
-    exportPage.style.display = `none`;
 };
 
 function promptNewButton(){
@@ -537,7 +499,7 @@ function saveButton(){
         localStorage.favoriteButtons = JSON.stringify(currentFavorites);
 
         loadButtons();
-        editButtonPage.style.display = `none`;
+        closeDialog();
         activeSectionID = - 1;
         activeButtonID = - 1;
     }
@@ -560,23 +522,6 @@ function settingsMenu(){
     reorderSectionPage.style.display = `none`;
     importPage.style.display = `none`;
     exportPage.style.display = `none`;
-};
-
-function showButtons(){
-    if(localStorage.allSections && localStorage.allSections != `[]`){
-        buttonsPage.style.display = `block`;
-    }else{
-        midEmptyPage.style.display = `block`;
-    }
-
-    informationPage.style.display = `none`;
-    newButtonPage.style.display = `none`;
-    editButtonPage.style.display = `none`;
-    settingsPage.style.display = `none`;
-    reorderSectionPage.style.display = `none`;
-    importPage.style.display = `none`;
-    exportPage.style.display = `none`;
-
 };
 
 function showInfo(){
@@ -636,38 +581,16 @@ window.addEventListener(`orientationchange`, function(){
         menuBar.style.display = `none`;
         orientationPage.style.display = `block`;
     }else{
-        buttonsPage.style.display = `block`;
+        closeDialog()
         menuBar.style.display = `grid`;
         titleBar.style.display = `grid`;
-        orientationPage.style.display = `none`;
     }
-})
+});
 
 window.onload = function(){
 	isMobile();
-    if(localStorage.allSections && localStorage.allSections != `[]`){
-        loadButtons();
-        buttonsPage.style.display = `block`;
-        informationPage.style.display = `none`;
-        newButtonPage.style.display = `none`;
-        midEmptyPage.style.display = `none`;
-        editButtonPage.style.display = `none`;
-        settingsPage.style.display = `none`;
-        reorderSectionPage.style.display = `none`;
-        importPage.style.display = `none`;
-        exportPage.style.display = `none`;
-    }else{
-        localStorage.allSections = `[]`;
-        buttonsPage.style.display = `none`;
-        informationPage.style.display = `none`;
-        newButtonPage.style.display = `none`;
-        midEmptyPage.style.display = `block`;
-        editButtonPage.style.display = `none`;
-        settingsPage.style.display = `none`;
-        reorderSectionPage.style.display = `none`;
-        importPage.style.display = `none`;
-        exportPage.style.display = `none`;
-    }
+    loadButtons();
+    closeDialog();
 
     let currentStatus = localStorage.lightMode;
 
