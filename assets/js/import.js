@@ -1,5 +1,4 @@
 (function(){
-	let alertText = `File upload failed. Please try again using a valid JSON file.`;
 	let file = document.getElementById(`file`);
 
 	function onChange(e){
@@ -23,9 +22,8 @@
 			loadSections();
 			loadSideNav();
 			location.reload();
-		}
-		catch{
-			alert(alertText);
+		}catch(e){
+			alert(e);
 			location.reload();
 		}
 	};
