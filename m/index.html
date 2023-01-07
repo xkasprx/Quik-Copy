@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html id="quikCopy">
+<head id="head">
+    <title>Quik Copy</title>
+    <meta name="title" content="Quik Copy">
+    <meta name="description" content="Copy and paste tool that allows users to quickly copy and paste frequently used text and phrases.">
+    <meta name="keywords" content="copy and paste, clipboard, web tools, business tools, free clipboard">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000" />
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="Kaspr">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/mobile.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/images/icon-small.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta itemprop="name" content="Quik Copy">
+    <meta itemprop="description" content="Copy and paste tool that allows users to quickly copy and paste frequently used text and phrases.">
+    <meta itemprop="image" content="https://quik-copy.com/assets/images/icon-small.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quik-copy.com/">
+    <meta property="og:title" content="Quik Copy">
+    <meta property="og:description" content="Copy and paste tool that allows users to quickly copy and paste frequently used text and phrases.">
+    <meta property="og:image" content="https://quik-copy.com/assets/images/icon-small.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://quik-copy.com/">
+    <meta property="twitter:title" content="Quik Copy">
+    <meta property="twitter:description" content="Copy and paste tool that allows users to quickly copy and paste frequently used text and phrases.">
+    <meta property="twitter:image" content="https://quik-copy.com/assets/images/icon-small.png">
+</head>
+
+<body id="body">
+    <div id="pageContainer">
+        <div id="titleBar">
+            <span id="settings">
+                <span class="fa fa-cog" id="settingsbutton" onclick="settingsMenu()"></span>
+            </span>
+            <span class="topbannerbranding" id="brandingcontainer">
+                <h1 id="branding">Quik Copy</h1>
+            </span>
+            <span id="theme">
+                <span class="fas fa-moon" id="themebutton" onclick="toggleTheme()"></span>
+            </span>
+        </div>
+        <div id="viewer">
+            <div id="midEmptyPage">
+                <h2>No Buttons Created</h2>
+            </div>
+            <div id="buttonsPage">
+            </div>
+            <div id="newButtonPage">
+                <h2>Section Name</h2>
+                <select name="sectionNameInput" id="sectionNameInput" required="true"><option>Select Option</option></select>
+                <br>
+                <br>
+                <div id="newSectionOptions">
+                    <input type="text" name="sectionNameInputNew" id="sectionNameInputNew" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false"></input>
+                    <p id="sectionNameLimit">(30 characters max)</p>
+                </div>
+                <hr>
+                <h2>Button Name</h2>
+                <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false" required="true"></input>
+                <p id="limit">(30 characters max)</p>
+                <hr>
+                <h2>Button Value</h2>
+                <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off" minlength="1" spellcheck="false" required="true"></textarea>
+                <br>
+                <button id="submitButton" onclick="createButton()">Submit</button>
+                <button id="cancelButton" onclick="clearInput()">Cancel</button>
+            </div>
+            <div id="informationPage">
+                <div id="helpSection">
+                    <h1>Help & How To</h1>
+                    <p>This tool allows you to create buttons to quickly copy and paste frequently used text. You simply create a button and when you need that text again, just click the corresponding button to "Quik Copy" it.
+                    </p>
+                    <p>All button information is stored locally on your device in the form of a cookie, and is not transmitted to our servers. It is advised to have a backup (export) from this site, in the event that you need to ever clear your cookies.</p>
+                    <hr>
+                    <h3>Create a Button</h3>
+                    <p>Use the "Add Button" <span class="fa fa-plus"></span> button to create a new button. Input a short name to reference it by, and in the "Button Value" box, type in what you want that button to represent.</p>
+                    <hr>
+                    <h3>View all Buttons</h3>
+                    <p>Use the "All Buttons" <span class="fa fa-layer-group"></span> button to view all created buttons.</p>
+                    <hr>
+                    <h3>Settings</h3>
+                    <p>Tap the "Settings Button" <span class="fa fa-cog"></span> to show options to reorder, import/export buttons, and delete all buttons.</p>
+                    <hr>
+                    <h3>Theme</h3>
+                    <p>You can change the theme by tapping the "Theme Button" <span id="themeButton" class="fas fa-moon"></span> to change from dark to light mode.</p>
+                    <hr>
+                    
+                </div>
+                <div id="copyrightSection">
+                    <div id="links">
+                        <h2 id="privacyLink" onclick="showPrivacy()">Privacy</h2>
+                        <h2>|</h2>
+                        <h2 id="termsLink" onclick="showTerms()">Terms</h2>
+                    </div>
+                    <br>
+                    <h3 onclick="loadHome()">YEARS DMS Services<br>All Rights Reserved</h3>
+                </div>
+            </div>
+            <div id="editButtonPage" style="display: none;">
+                <h2>New Button Name</h2>
+                <input type="text" name="editNameInput" id="editNameInput" hint="Name"autocomplete="off" maxlength="30" minlength="1" spellcheck="false" required="true"></input>
+                <br><p id="limit">(30 characters max)</p>
+                <hr>
+                <h2>New Button Value</h2>
+                <textarea name="editPasteValue" id="editPasteValue" hint="Paste Value"autocomplete="off" minlength="1" spellcheck="false" required="true"></textarea>
+                <br>
+                <button id="editSubmitButton" onclick="saveButton()">Submit</button>
+                <button id="cancelButton" onclick="closeEdit()">Cancel</button>
+            </div>
+            <div id="settingsPage" style="display: none;">
+                <h1>Settings</h1>
+                <br>
+                <hr>
+                <h2>Reorder Sections</h2>
+                <button onclick="promptSectionReorder()">Reorder</button>
+                <br>
+                <hr>
+                <h2>Import/Export</h2>
+                <button onclick="exportItems()">Export</button>
+                <button onclick="importItems()">Import</button>
+                <br>
+                <hr>
+                <h2>Delete All</h2>
+                <button id="deleteAllButton" onclick="clearAll()">Delete All</button>
+                <br>
+                <hr>
+                <button id="closeSettings" onclick="closeSettings()">Cancel</button>
+            </div>
+            <div id="reorderSectionPage" style="display: none;">
+                <h2>Reorder sections from 1 to XYZ</h2>
+                <div id="reorderSections"></div>
+                <button id="cancelButton" onclick="closeReorder()">Cancel</button>
+                <button id="reorderConfirmButton" onclick="confirmSectionReorder()">Confirm</button>
+            </div>
+            <div id="importPage" style="display: none;">
+                <h2>Select file to import.</h2>
+                <hr>
+                <br>
+                <label id="file" type="file" accept="json">
+                    <input type="file"/>
+                    <span class="fa fa-upload"> Import</span>
+                </label>
+                <script src="./assets/js/import.js"></script>
+                <button id="cancelButton" onclick="closeImport()">Cancel</button>
+            </div>
+            <div id="exportPage" style="display: none;">
+                <h2>Export which sections?</h2>
+                <hr>
+                <div id="exportCheckBoxes"></div>
+                <button id="confirmExportButton" onclick="confirmExport()">Confirm</button>
+                <button id="cancelButton" onclick="closeExport()">Cancel</button>
+            </div>
+            <div id="orientationPage" style="display: none;">
+                <h1 id="notice">Please rotate your device to portrait mode to continue.</h1>
+            </div>
+        </div>
+        <div id="menuBar">
+            <div id="list">
+                <span class="fa fa-layer-group" id="listButton" onclick="showButtons()"></span>
+            </div>
+            <div id="new">
+                <span class="fa fa-plus" id="addButton" onclick="promptNewButton()"></span>
+            </div>
+            <div id="info">
+                <span class="fa fa-question" id="infoButton" onclick="showInfo()"></span>
+            </div>
+        </div>
+        <div id="dialogs">
+            <div id="clickedButtonDialog"></div>
+        </div>
+    </div>
+    <script src="./assets/js/mobile.js"></script>
+    <noscript id="noscript">
+        <style type="text/css">
+            #pageContainer{visibility: hidden}
+            #body::before{content: "You don't have JavaScript enabled.  Good luck with that because nothing on this site works without it.";}
+        </style>
+    </noscript>
+</body>
+
+</html>

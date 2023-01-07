@@ -1,0 +1,349 @@
+:root{
+	--main-bg-color: #25729E;
+	--main-sidenav-color: #252525;
+	--hover-color: #555555;
+	--font-color1: #37A0DC;
+	--color1: #000000;
+	--color2: #37A0DC;
+	--color3: #00FF00;
+	--color4: #FFFFFF;
+	--color5: #F72828;
+	--color6: #FF6600;
+	--font: Poppins;
+}
+
+.light{
+	--main-bg-color: #f3f3f3;
+	--main-sidenav-color: #dcdcdc;
+	--hover-color: #73aec7;
+	--font-color1: #000000;
+	--color1: #749354;
+	--color2: #536d6c;
+	--color3: #055a2b;
+	--color4: #242422;
+	--color5: #753118;
+	--color6: #FF6600;
+	--font: Poppins;
+}
+
+body{
+	display: grid;
+	grid-template-rows: 10% 80% 10%;
+	display: block;
+	background-color: var(--main-bg-color);
+	margin: 0;
+	font-family: var(--font) !important;
+}
+
+body::-webkit-scrollbar,
+#viewer::-webkit-scrollbar{ 
+    display: none;
+	width: 0px;
+}
+
+p{
+	font-weight: 600;
+}
+
+h1{
+	color: var(--color4);
+}
+
+h2{
+	color: var(--color3);
+}
+
+h3{
+	color: var(--color3);
+}
+
+h4{
+	color: var(--color3);
+}
+
+h5{
+	color: var(--color3);
+}
+
+hr{
+	border-color: var(--main-bg-color);
+	border-width: 1px;
+	clear: both;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#addButton{
+	position: absolute;
+	font-size: 3vh;
+	margin-top: 1vh;
+	color: var(--font-color1);
+	z-index: 1;
+	text-align: center;
+	width: 33.33%;
+}
+
+#branding{
+	position: relative;
+	text-align: center;
+	font-size: 3vh;
+	top: -1.5vh;
+}
+
+#buttonsPage{
+	margin-left: 1vh;
+	margin-right: 1vh;
+}
+
+#buttonsPage button{
+	color: var(--font-color1);
+	background-color: var(--main-sidenav-color);
+	border: solid 1px var(--main-sidenav-color);
+	height: 7vh;
+	font-size: larger;
+	margin-bottom: 2vh;
+	margin-right: 2vh;
+	border-radius: 2vw;
+}
+
+#cancelButton{
+	background-color: var(--color5);
+	border: solid 1vh var(--color5);
+}
+
+#clickedButtonDialog{
+	display: none;
+	position: fixed;
+	left: 40vw;
+	top: 40vh;
+	width: 30vw;
+	text-align: center;
+	border: solid 1vw var(--color1);
+	background-color: var(--main-bg-color);
+}
+
+#copyrightSection{
+	position: relative;
+	width: 80%;
+	margin-top: 3vh;
+	text-align: center;
+	padding-left: 8vw;
+}
+
+#copyrightSection h2{
+	display: inline-block;
+	width: 100%;
+	color: var(--color6);
+	font-weight: 900;
+	text-align: center;
+}
+
+#copyrightSection h3{
+	display: inline-block;
+	width: 100%;
+	font-weight: 900;
+	text-align: center;
+}
+
+#editButtonPage,
+#exportPage,
+#importPage,
+#newButtonPage,
+#settingsPage,
+#reorderSectionPage{
+	text-align: center;
+}
+
+#editButtonPage button,
+#exportPage button,
+#importPage button,
+#newButtonPage button,
+#reorderSectionPage button,
+#settingsPage button{
+	font-size: larger;
+	color: var(--color1);
+	font-weight: 600;
+	margin-left: 4vw;
+	margin-right: 4vw;
+	margin-top: 1vh;
+}
+
+#editButtonPage input,
+#newButtonPage select,
+#newButtonPage input{
+	width: 75%;
+	font-size: larger;
+	background-color: var(--hover-color);
+	color: var(--color4);
+}
+
+#editButtonPage textarea,
+#newButtonPage textarea{
+	width: 75%;
+	height: 40vh;
+	font-size: larger;
+	background-color: var(--hover-color);
+	color: var(--color4);
+}
+
+#editSubmitButton,
+#confirmExportButton,
+#reorderConfirmButton,
+#submitButton{
+	background-color: var(--color3);
+	border: solid 1vh var(--color3);
+}
+
+#exportCheckBoxes{
+	text-align: left;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	font-weight: 600;
+}
+
+#exportPage button{
+	margin-left: 4vw;
+	margin-right: 4vw;
+	margin-top: 1vh;
+}
+
+#file {
+	font-size: larger;
+	font-weight: 600;
+	margin-left: 4vw;
+	margin-right: 4vw;
+	margin-top: 1vh;
+	background-color: var(--color3);
+    border: solid 1.2vh var(--color3);
+}
+
+#helpSection{
+	margin: 1vw;
+}
+
+#helpSection h1{
+	text-align: center;
+}
+
+#infoButton{
+	position: absolute;
+	font-size: 3vh;
+	margin-top: 1vh;
+	color: var(--font-color1);
+	z-index: 1;
+	text-align: center;
+	width: 33.33%;
+}
+
+#informationPage{
+	padding: 1vh;
+	width: fit-content;
+}
+
+#limit,
+#sectionNameLimit{
+	margin-top: 0vh;
+}
+
+#links{
+	display: inline-flex;
+	padding: 1vw;
+}
+
+#listButton{
+	position: absolute;
+	font-size: 3vh;
+	margin-top: 1vh;
+	color: var(--font-color1);
+	z-index: 1;
+	text-align: center;
+	width: 33.33%;
+}
+
+#menuBar{
+	position: fixed;
+	background-color: var(--main-sidenav-color);
+	height: 5vh;
+	width: 100vw;
+	bottom: 0;
+	left: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+#midEmptyPage{
+	text-align: center;
+	margin-top: 10rem;
+	display: none;
+}
+
+#notice{
+	text-align: center;
+	padding-top: 15%;
+}
+
+#privacyLink{
+	margin-right: 1vw;
+	text-decoration: underline;
+}
+
+#reorderSectionPage h3{
+	text-align: center;
+}
+
+#reorderSectionPage input{
+	width: 5vw;
+	float: right;
+	margin-right: 15vw;
+	background-color: var(--hover-color);
+	color: var(--color4);
+}
+
+#settingsbutton{
+	position: absolute;
+	top: 1vh;
+	left: 2vw;
+	font-size: 3vh;
+	color: var(--font-color1);
+}
+
+#settingsPage button{
+	background-color: var(--main-sidenav-color);
+	color: var(--font-color1);
+	border: solid 1vw var(--main-sidenav-color);
+	height: 5vh;
+}
+
+#termsLink{
+	margin-left: 1vw;
+	text-decoration: underline;
+}
+
+#themebutton{
+	position: absolute;
+	top: 1.25vh;
+	right: 2vw;
+	font-size: 2.5vh;
+	color: var(--font-color1);
+	z-index: 1;
+}
+
+#titleBar{
+	background-color: var(--color1);
+	height: 5vh;
+	width: 100vw;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 25% 50% 25%;
+}
+
+#viewer{
+	background-color: var(--main-bg-color);
+	height: 90vh;
+	width: 100vw;
+	overflow-y: scroll;
+	scrollbar-width: 0px;
+	padding-bottom: 30vh;
+}

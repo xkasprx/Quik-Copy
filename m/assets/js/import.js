@@ -10,7 +10,7 @@
 
 	function onReaderLoad(e){
 		try{
-			closeDialog();
+			closeImport();
 			let allSections = JSON.parse(localStorage.allSections);
 			JSON.parse(e.target.result).forEach(x =>{
 				let newName = JSON.parse(x).sectionName;
@@ -20,8 +20,7 @@
 				allSections.push(newSection);
 			});
 			localStorage.allSections = JSON.stringify(allSections);
-			loadSections();
-			loadSideNav();
+			loadButtons();
 			location.reload();
 		}
 		catch{

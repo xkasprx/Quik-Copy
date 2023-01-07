@@ -101,7 +101,7 @@
         </div>
         <dialog id="createsectiondialog">
             <p>Section Name</p>
-            <input type="text" name="sectionNameInput" id="sectionNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false"></input>
+            <input type="text" name="sectionNameInput" id="sectionNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false" required="true"></input>
              <span id="limit">(30 characters max)</span>
              <hr>
             <button type="submit" onclick="createSection()" id="sectionSubmit">Submit</button>
@@ -109,11 +109,11 @@
         </dialog>
         <dialog id="createbuttondialog">
             <p>Button Name</p>
-            <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false"></input>
+            <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false" required="true"></input>
             <br><span id="limit">(30 characters max)</span>
             <hr>
             <p>Button Value</p>
-            <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off" minlength="1" spellcheck="false"></textarea>
+            <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off" minlength="1" spellcheck="false" required="true"></textarea>
             <br>
             <button onclick="createButton()">Submit</button>
             <button class="cancel" onclick="closeDialog()">Cancel</button>
@@ -221,7 +221,10 @@
         <dialog id="importdialog">
             <p>Select file to import.</p>
             <hr>
-            <input id="file" type="file" accept="json">
+            <label id="file" type="file" accept="json">
+                <input type="file"/>
+                <span class="fa fa-upload"> Import</span>
+            </label>
             <script src="/assets/js/import.js"></script>
             <br>
             <button class="cancel" onclick="closeDialog()">Cancel</button>

@@ -105,6 +105,10 @@ hr{
 	clear: both;
 }
 
+input[type="file"] {
+    display: none;
+}
+
 .addButtonButton{
 	background-color: var(--color1);
 	color: var(--main-bg-color);
@@ -352,6 +356,12 @@ hr{
 
 #favnavempty:hover{
 	visibility: hidden !important;
+}
+
+#file {
+	margin-top: 1vh;
+	background-color: var(--color3);
+    border: solid 5px var(--color3);
 }
 
 #help{

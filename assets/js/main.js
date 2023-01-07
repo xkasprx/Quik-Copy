@@ -1,19 +1,14 @@
-let versionText = `3.3.6`;
+let versionText = `3.4.0`;
+let activeButtonID, activeSectionID, newButtonName, newButtonValue, oldButtonName, oldButtonValue;
 
 let body = document.body;
-let activeButtonID;
-let activeSectionID;
-let newButtonName;
-let newButtonValue;
-let oldButtonName;
-let oldButtonValue;
 
 let lightMode = localStorage.getItem(`lightMode`);
 let instructions = localStorage.getItem(`instructions`);
 
 let buttonNameInput = document.getElementById(`buttonNameInput`);
 let buttonPasteValue = document.getElementById(`buttonPasteValue`);
-let copyright =document.getElementById(`copyright`);
+let copyright = document.getElementById(`copyright`);
 let createButtonDialog = document.getElementById(`createbuttondialog`);
 let createSectionDialog = document.getElementById(`createsectiondialog`);
 let editButtonDialog = document.getElementById(`editbuttondialog`);
@@ -51,8 +46,6 @@ let brandingPosition = document.getElementById(`branding`);
 let editSubmitButton = document.querySelector(`#editSubmitButton`);
 let allDialogs = document.querySelectorAll(`dialog`);
 
-let deleteAllString = `THIS WILL DELETE ALL OF YOUR SECTIONS AND THEIR BUTTONS!\n\nClick OK if you are sure you want to delete all sections and all of their buttons?`;
-
 document.addEventListener(`click`, (e) => {
     for(i = 0; i < allDialogs.length; i++){
         let dialog = allDialogs[i];
@@ -85,6 +78,7 @@ function addFavorite(){
 
 function clearAll(){
     if(!localStorage.allSections || localStorage.allSections != `[]`){
+        let deleteAllString = `THIS WILL DELETE ALL OF YOUR SECTIONS AND THEIR BUTTONS!\n\nClick OK if you are sure you want to delete all sections and all of their buttons?`;
         closeDialog();
 
         if(confirm(deleteAllString)){
@@ -124,21 +118,21 @@ function confirmExport(){
 
         let sections = JSON.parse(localStorage.allSections);
         sections.forEach(section => exportjson.push(JSON.stringify(section)));
-        saveText(JSON.stringify(exportjson), `chatToolExport.json`);
+        saveText(JSON.stringify(exportjson), `Quik Copy Export.json`);
         closeDialog();
-        return;
-    }
-    boxes.forEach(box => exportedsections.push(box.value));
-    let sections = JSON.parse(localStorage.allSections);
-    sections.forEach(section =>{
-        exportedsections.forEach(field =>{
-            if(section.sectionName === field){
-                exportjson.push(JSON.stringify(section));
-            }
+    }else{
+        boxes.forEach(box => exportedsections.push(box.value));
+        let sections = JSON.parse(localStorage.allSections);
+        sections.forEach(section =>{
+            exportedsections.forEach(field =>{
+                if(section.sectionName === field){
+                    exportjson.push(JSON.stringify(section));
+                }
+            });
         });
-    });
-    saveText(JSON.stringify(exportjson), `chatToolExport.json`);
-    closeDialog();
+        saveText(JSON.stringify(exportjson), `Quik Copy Export.json`);
+        closeDialog();
+    }
 };
 
 function confirmSectionReorder(){
@@ -316,7 +310,6 @@ function deleteSection(sectionId){
     let allSections = JSON.parse(localStorage.allSections);
     let favoriteButtons = JSON.parse(localStorage.favoriteButtons);
     let confirmText = `Click OK to confirm deletion of the section ${allSections[sectionId].sectionName} and all of its buttons?`;
-
 
     if(confirm(confirmText)){
         delete allSections[sectionId];
@@ -595,7 +588,7 @@ function restyleElements(){
 
 function saveText(text, filename){
     let a = document.createElement(`a`);
-    a.setAttribute(`href`, `data:text/plain;charset=utf-u,${encodeURIComponent(text)}`);
+    a.setAttribute(`href`, `data:application/json;charset=utf-u,${encodeURIComponent(text)}`);
     a.setAttribute(`download`, filename);
     a.click();
 };
@@ -698,7 +691,7 @@ function toggleTheme(){
 
 window.onload = function(){
     this.restyleElements();
-    let mobile = this.isMobile();
+    this.isMobile();
     if(localStorage.allSections && localStorage.allSections != `[]`){
         this.loadSections();
         this.loadSideNav();
@@ -715,7 +708,7 @@ window.onload = function(){
         favNavEmpty.style.visibility = `visible`;
     }
 
-    if(!instructions && !mobile){
+    if(!instructions){
         showHelp();
         localStorage.instructions = true;
     }
@@ -725,7 +718,6 @@ window.onload = function(){
     currentStatus === `enabled` ? enableLightMode() : localStorage.lightMode = `disabled`;
     themeButton.className = currentStatus === `enabled` ? `fas fa-sun` : `fas fa-moon`;
     reorderSectionsDialog.innerHTML = reorderSectionsDialog.innerHTML.replace(`XYZ`, JSON.parse(localStorage.allSections).length);
-
     version.innerText = version.innerText.replace(`Unknown`, versionText);
     copyright.innerHTML = copyright.innerHTML.replace(`YEARS`, `&copy; 2020 ~ ${new Date().getFullYear()}`);
 };
@@ -737,19 +729,8 @@ window.onresize = function(){
 function isMobile(){
     let userAgent = navigator.userAgent;
 
-    let mobileText = `<br><h1>This site is not desiged to be functional from a mobile device.<br></h1>`;
-    let appleText = `<br><h1>Please download the app from the Apple App Store.</h1><br><a href="/"><img id="apple" src="/assets/images/apple-badge.svg"></a><br>In development<br>`;
-    let androidText = `<br><h1>Please download the app from the Google Play Store.</h1><br><a href="/"><img id="google" src="/assets/images/google-badge.svg"></a><br>In development<br>`
-    let otherText = `<h1>Please return from a computer to use this tool.</h1>`;
-
     if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox/ig.test(userAgent)){
-        let isApple = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-        let isAndroid = /android/i.test(userAgent) && !/windows phone/i.test(userAgent);
-        let needsApp = isApple ? appleText : isAndroid ? androidText : otherText;
-
-        body.innerHTML = `<div id="mobile">${mobileText}${needsApp}</div>`;
-
-        return true;
+        return location.href = `/m`
     }
     return false;
 };
