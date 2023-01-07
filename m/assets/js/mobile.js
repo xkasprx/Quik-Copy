@@ -134,7 +134,8 @@ function confirmExport(){
         let sections = JSON.parse(localStorage.allSections);
         sections.forEach(section => exportjson.push(JSON.stringify(section)));
         saveText(JSON.stringify(exportjson), `Quik Copy Export.json`);
-        location.reload();
+        exportPage.style.display = `none`;
+        buttonsPage.style.display = `block`;
     }else{
         boxes.forEach(box => exportedsections.push(box.value));
         let sections = JSON.parse(localStorage.allSections);
@@ -146,7 +147,8 @@ function confirmExport(){
             });
         });
         saveText(JSON.stringify(exportjson), `Quik Copy Export.json`);
-        location.reload();
+        exportPage.style.display = `none`;
+        buttonsPage.style.display = `block`;
     }
 };
 
