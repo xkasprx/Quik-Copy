@@ -433,13 +433,16 @@ function promptNewButton(){
     if(localStorage.allSections || localStorage.allSections !== `[]`){
         newSectionOptions.style.display = `none`;
         let allSections = JSON.parse(localStorage.allSections);
+        let newSectionEntry = `<option value="New">New</option>`;
 
         for(let i = 0; i < allSections.length; i++){
             let sectionName = allSections[i].sectionName;
             sectionNameInput.innerHTML.includes(sectionName) ? 0 : sectionNameInput.innerHTML += `<option value="${sectionName}">${sectionName}</option>`;
         }
 
-        sectionNameInput.innerHTML += `<option value="New">New</option>`;
+        if(!sectionNameInput.innerHTML.includes((newSectionEntry))){
+            sectionNameInput.innerHTML += newSectionEntry;
+        }
     }
 };
 
