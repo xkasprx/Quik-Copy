@@ -374,7 +374,7 @@ function importItems(){
 
 function isMobile(){	
 	if(!/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox/ig.test(userAgent)){
-       // return location.href = `/`;
+        return location.href = `/`;
     }
     return true;
 };
