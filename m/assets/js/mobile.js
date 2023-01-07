@@ -1,3 +1,4 @@
+let versionText = `3.4.2`;
 let activeButtonID, activeSectionID, newButtonName, newButtonValue, oldButtonName, oldButtonValue;
 
 let body = document.body;
@@ -31,6 +32,7 @@ let sectionNameLimit = document.getElementById(`sectionNameLimit`);
 let settingsPage = document.getElementById(`settingsPage`);
 let titleBar = document.getElementById(`titleBar`);
 let themeButton = document.getElementById(`themebutton`);
+let version = document.getElementById(`version`);
 
 document.addEventListener(`click`, (e) => {
     if(clickedButtonDialog.style.display === `block` && e.target.getAttribute(`id`) !== `clickedButtonDialog`){
@@ -349,7 +351,7 @@ function importItems(){
 
 function isMobile(){	
 	if(!/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox/ig.test(userAgent)){
-        // return location.href = `/`;
+        return location.href = `/`;
     }
     return true;
 };
@@ -599,6 +601,8 @@ window.onload = function(){
     helpSection.innerHTML = currentStatus === `enabled` ? helpSection.innerHTML.replace(`fas fa-moon`, `fas fa-sun`) : helpSection.innerHTML.replace(`fas fa-sun`, `fas fa-moon`);
     helpSection.innerHTML = currentStatus === `enabled` ? helpSection.innerHTML.replace(`dark to light`, `light to dark`) : helpSection.innerHTML.replace(`light to dark`, `dark to light`);
     reorderSectionPage.innerHTML = reorderSectionPage.innerHTML.replace(`XYZ`, JSON.parse(localStorage.allSections).length);
+    version.innerHTML = version.innerHTML.replace(`Unknown`, versionText);
+    version.style.textAlign = `center`;
     copyrightSection.innerHTML = copyrightSection.innerHTML.replace(`YEARS`, `&copy; 2020 ~ ${new Date().getFullYear()}`);
 
     setTimeout(() => {

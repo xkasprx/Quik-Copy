@@ -241,19 +241,13 @@ input[type="file"] {
 	width: 33.33%;
 }
 
-#informationPage{
-	padding: 1vh;
-	width: fit-content;
-}
-
 #limit,
 #sectionNameLimit{
 	margin-top: 0vh;
 }
 
 #links{
-	display: inline-flex;
-	padding: 1vw;
+	text-align: center;
 }
 
 #listButton{
@@ -341,6 +335,10 @@ input[type="file"] {
 	margin: auto;
 	display: grid;
 	grid-template-columns: 25% 50% 25%;
+}
+
+#version{
+	color: var(--color3);
 }
 
 #viewer{
