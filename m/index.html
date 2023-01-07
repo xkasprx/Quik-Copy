@@ -68,7 +68,7 @@
                 <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off" minlength="1" spellcheck="false" required="true"></textarea>
                 <br>
                 <button id="submitButton" onclick="createButton()">Submit</button>
-                <button id="cancelButton" onclick="clearInput()">Cancel</button>
+                <button id="cancelButton" onclick="closeDialog()">Cancel</button>
             </div>
             <div id="informationPage">
                 <div id="helpSection">
@@ -110,7 +110,7 @@
                 <textarea name="editPasteValue" id="editPasteValue" hint="Paste Value"autocomplete="off" minlength="1" spellcheck="false" required="true"></textarea>
                 <br>
                 <button id="editSubmitButton" onclick="saveButton()">Submit</button>
-                <button id="cancelButton" onclick="closeEdit()">Cancel</button>
+                <button id="cancelButton" onclick="closeDialog()">Cancel</button>
             </div>
             <div id="settingsPage" style="display: none;">
                 <h1>Settings</h1>
@@ -129,12 +129,12 @@
                 <button id="deleteAllButton" onclick="clearAll()">Delete All</button>
                 <br>
                 <hr>
-                <button id="closeSettings" onclick="closeSettings()">Cancel</button>
+                <button id="closeSettings" onclick="closeDialog()">Cancel</button>
             </div>
             <div id="reorderSectionPage" style="display: none;">
                 <h2>Reorder sections from 1 to XYZ</h2>
                 <div id="reorderSections"></div>
-                <button id="cancelButton" onclick="closeReorder()">Cancel</button>
+                <button id="cancelButton" onclick="closeDialog()">Cancel</button>
                 <button id="reorderConfirmButton" onclick="confirmSectionReorder()">Confirm</button>
             </div>
             <div id="importPage" style="display: none;">
@@ -146,14 +146,14 @@
                     <span class="fa fa-upload"> Import</span>
                 </label>
                 <script src="./assets/js/import.js"></script>
-                <button id="cancelButton" onclick="closeImport()">Cancel</button>
+                <button id="cancelButton" onclick="closeDialog()">Cancel</button>
             </div>
             <div id="exportPage" style="display: none;">
                 <h2>Export which sections?</h2>
                 <hr>
                 <div id="exportCheckBoxes"></div>
                 <button id="confirmExportButton" onclick="confirmExport()">Confirm</button>
-                <button id="cancelButton" onclick="closeExport()">Cancel</button>
+                <button id="cancelButton" onclick="closeDialog()">Cancel</button>
             </div>
             <div id="orientationPage" style="display: none;">
                 <h1 id="notice">Please rotate your device to portrait mode to continue.</h1>
