@@ -134,7 +134,7 @@ function confirmExport(){
         let sections = JSON.parse(localStorage.allSections);
         sections.forEach(section => exportjson.push(JSON.stringify(section)));
         saveText(JSON.stringify(exportjson), `Quik Copy Export.json`);
-        exportPage.style.display = `none`;
+        location.reload();
     }else{
         boxes.forEach(box => exportedsections.push(box.value));
         let sections = JSON.parse(localStorage.allSections);
@@ -146,7 +146,7 @@ function confirmExport(){
             });
         });
         saveText(JSON.stringify(exportjson), `Quik Copy Export.json`);
-        exportPage.style.display = `none`;
+        location.reload();
     }
 };
 
