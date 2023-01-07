@@ -258,12 +258,9 @@ function createButton(){
         }
 
         localStorage.allSections = JSON.stringify(allSections);
-        loadButtons();
         buttonNameInput.value = ``;
         buttonPasteValue.value = ``;
-
-        newButtonPage.style.display = `none`;
-        buttonsPage.style.display = `block`;
+        location.reload();
     }
 };
 
