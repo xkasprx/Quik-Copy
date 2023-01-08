@@ -52,18 +52,25 @@
             <div id="buttonsPage">
             </div>
             <div id="newButtonPage">
-                <h2>Section Name</h2>
-                <select name="sectionNameInput" id="sectionNameInput" required="true"><option>Select Option</option></select>
-                <br>
-                <br>
-                <div id="newSectionOptions">
-                    <input type="text" name="sectionNameInputNew" id="sectionNameInputNew" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false"></input>
-                    <p id="sectionNameLimit">(30 characters max)</p>
+                <div id="nameGroup">
+                    <div id="nameGroupSection">
+                        <h2>Section Name</h2>
+                        <div id="nameGroupDropDown">
+                            <select name="sectionNameInput" id="sectionNameInput" required="true"><option>Select Option</option></select>
+                            <br>
+                        </div>
+                        <div id="newSectionOptions">
+                            <input type="text" name="sectionNameInputNew" id="sectionNameInputNew" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false"></input>
+                            <p id="sectionNameLimit">(30 characters max)</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div id="nameGroupButton">
+                        <h2>Button Name</h2>
+                        <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false" required="true"></input>
+                        <p id="limit">(30 characters max)</p>
+                    </div>
                 </div>
-                <hr>
-                <h2>Button Name</h2>
-                <input type="text" name="buttonNameInput" id="buttonNameInput" hint="Name" autocomplete="off" maxlength="30" minlength="1" spellcheck="false" required="true"></input>
-                <p id="limit">(30 characters max)</p>
                 <hr>
                 <h2>Button Value</h2>
                 <textarea name="buttonPasteValue" id="buttonPasteValue" hint="Paste Value" autocomplete="off" minlength="1" spellcheck="false" required="true"></textarea>

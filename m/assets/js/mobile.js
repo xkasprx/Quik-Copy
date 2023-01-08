@@ -1,4 +1,4 @@
-let versionText = `3.4.2`;
+let versionText = `3.4.3`;
 let activeButtonID, activeSectionID, newButtonName, newButtonValue, oldButtonName, oldButtonValue;
 
 let body = document.body;
@@ -21,6 +21,7 @@ let informationPage = document.getElementById(`informationPage`);
 let infoMenu = document.getElementById(`info`);
 let menuBar = document.getElementById(`menuBar`);
 let midEmptyPage = document.getElementById(`midEmptyPage`);
+let nameGroupDropDown = document.getElementById(`nameGroupDropDown`);
 let newButtonMenu = document.getElementById(`new`);
 let newButtonPage = document.getElementById(`newButtonPage`);
 let newSectionOptions = document.getElementById(`newSectionOptions`);
@@ -351,7 +352,7 @@ function importItems(){
 
 function isMobile(){	
 	if(!/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox/ig.test(userAgent)){
-        return location.href = `/`;
+        // return location.href = `/`;
     }
     return true;
 };
@@ -570,6 +571,14 @@ sectionNameInput.onchange = function(e){
         sectionNameInputNew.setAttribute(`required`, `false`);
     }
 };
+
+sectionNameInputNew.oninput = function(e){
+    if(sectionNameInputNew.value.length > 0){
+        nameGroupDropDown.style.display = `none`;
+    }else{
+        nameGroupDropDown.style.display = `block`;
+    }
+}
 
 window.addEventListener(`orientationchange`, function(){
     if(window.matchMedia(`(orientation: landscape)`).matches){

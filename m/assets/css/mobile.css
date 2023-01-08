@@ -79,6 +79,13 @@ input[type="file"] {
     display: none;
 }
 
+input,
+textarea,
+select{
+	border-radius: 2vw;
+	border: solid 0vw var(--hover-color);
+}
+
 #addButton{
 	position: absolute;
 	font-size: 3vh;
@@ -123,7 +130,8 @@ input[type="file"] {
 	top: 40vh;
 	width: 30vw;
 	text-align: center;
-	border: solid 1vw var(--color1);
+	border: solid .5vw var(--color1);
+	border-radius: 2vw;
 	background-color: var(--main-bg-color);
 }
 
@@ -173,9 +181,7 @@ input[type="file"] {
 	margin-top: 1vh;
 }
 
-#editButtonPage input,
-#newButtonPage select,
-#newButtonPage input{
+#editButtonPage input{
 	width: 75%;
 	font-size: larger;
 	background-color: var(--hover-color);
@@ -275,6 +281,36 @@ input[type="file"] {
 	text-align: center;
 	margin-top: 10rem;
 	display: none;
+}
+
+#nameGroup{
+	display: inline-flex;
+	width: 100vw;
+}
+
+#nameGroup hr{
+	margin-top: -.5vh;
+	margin-bottom: 0vh;
+}
+
+#nameGroupButton,
+#nameGroupSection{
+	display: inline-block;
+	width: 50vw;
+}
+
+#newButtonPage select,
+#newButtonPage input{
+	display: inline-flex;
+	width: 85%;
+	height: 3vh;
+	font-size: larger;
+	background-color: var(--hover-color);
+	color: var(--color4);
+}
+
+#newButtonPage select{
+	height: 4.25vh;
 }
 
 #notice{
