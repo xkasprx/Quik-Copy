@@ -33,7 +33,10 @@
 </head>
 
 <body id="body">
-    <div id="pageContainer">
+    <div id="unsupported">
+        <h1 id="notice">Your browser or its configuration is not supported.</h1>
+    </div>
+    <div id="pageContainer" style="display: none;">
         <div id="titleBar">
             <span id="settings">
                 <span class="fa fa-cog" id="settingsbutton" onclick="settingsMenu()"></span>
@@ -182,12 +185,6 @@
         </div>
     </div>
     <script src="./assets/js/mobile.js"></script>
-    <noscript id="noscript">
-        <style type="text/css">
-            #pageContainer{visibility: hidden}
-            #body::before{content: "You don't have JavaScript enabled.  Good luck with that because nothing on this site works without it.";}
-        </style>
-    </noscript>
 </body>
 
 </html>

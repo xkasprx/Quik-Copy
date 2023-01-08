@@ -1,4 +1,4 @@
-let versionText = `3.4.3`;
+let versionText = `3.4.2`;
 let activeButtonID, activeSectionID, newButtonName, newButtonValue, oldButtonName, oldButtonValue;
 
 let body = document.body;
@@ -29,6 +29,7 @@ let midEmpty = document.getElementById(`midempty`);
 let midContainer = document.getElementById(`midcontainer`);
 let midNav = document.getElementById(`midnav`);
 let nav = document.getElementById(`nav`);
+let pageContainer = document.getElementById(`pageContainer`);
 let popup = document.getElementById(`popup`);
 let privacyDialog = document.getElementById(`privacydialog`);
 let reorderSectionsDialog = document.getElementById(`reorderSectionsDialog`);
@@ -40,6 +41,7 @@ let sideNavCells = document.getElementById(`sidenavcells`);
 let termsDialog =document.getElementById(`termsdialog`);
 let themeButton = document.getElementById(`themebutton`);
 let topBanner = document.getElementById(`topbanner`);
+let unsupported = document.getElementById(`unsupported`);
 let version = document.getElementById(`version`);
 let brandingPosition = document.getElementById(`branding`);
 
@@ -690,8 +692,11 @@ function toggleTheme(){
 };
 
 window.onload = function(){
+    pageContainer.style.display = `block`;
+    unsupported.style.display = `none`;
     this.restyleElements();
     this.isMobile();
+
     if(localStorage.allSections && localStorage.allSections != `[]`){
         this.loadSections();
         this.loadSideNav();

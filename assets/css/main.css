@@ -541,16 +541,11 @@ input[type="file"] {
 	margin-top: 15rem;
 }
 
-#apple{
-	width: 25rem;
-	padding: 5px;
-	filter: brightness(20%);
-}
-
-#goole{
-	width: 25rem;
-	padding: 5px;
-	filter: brightness(20%);
+#notice{
+	text-align: center;
+	padding-top: 15%;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 #themebutton{

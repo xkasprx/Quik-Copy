@@ -26,6 +26,7 @@ let newButtonMenu = document.getElementById(`new`);
 let newButtonPage = document.getElementById(`newButtonPage`);
 let newSectionOptions = document.getElementById(`newSectionOptions`);
 let orientationPage = document.getElementById(`orientationPage`);
+let pageContainer = document.getElementById(`pageContainer`);
 let reorderSectionPage = document.getElementById(`reorderSectionPage`);
 let sectionNameInput = document.getElementById(`sectionNameInput`);
 let sectionNameInputNew = document.getElementById(`sectionNameInputNew`);
@@ -33,6 +34,7 @@ let sectionNameLimit = document.getElementById(`sectionNameLimit`);
 let settingsPage = document.getElementById(`settingsPage`);
 let titleBar = document.getElementById(`titleBar`);
 let themeButton = document.getElementById(`themebutton`);
+let unsupported = document.getElementById(`unsupported`);
 let version = document.getElementById(`version`);
 
 document.addEventListener(`click`, (e) => {
@@ -352,7 +354,7 @@ function importItems(){
 
 function isMobile(){	
 	if(!/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox | Linux | Kindle | Silk | KFTT | KFOT | KFJWA | KFJWI | KFSOWI | KFTHWA | KFTHWI | KFAPWA | KFAPWI | KFASWI | KFTBWI | KFMEWI | KFFOWI | KFSAWA | KFSAWI | KFARWI | KHTML/ig.test(userAgent)){
-        return location.href = `/`;
+        // return location.href = `/`;
     }
     return true;
 };
@@ -602,6 +604,8 @@ window.addEventListener(`orientationchange`, function(){
 });
 
 window.onload = function(){
+    unsupported.style.display = `none`;
+    pageContainer.style.display = `block`;
 	isMobile();
     loadButtons();
     closeDialog();
