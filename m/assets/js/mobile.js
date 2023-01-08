@@ -351,7 +351,7 @@ function importItems(){
 };
 
 function isMobile(){	
-	if(!/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox/ig.test(userAgent)){
+	if(!/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox | Linux | Kindle | Silk | KFTT | KFOT | KFJWA | KFJWI | KFSOWI | KFTHWA | KFTHWI | KFAPWA | KFAPWI | KFASWI | KFTBWI | KFMEWI | KFFOWI | KFSAWA | KFSAWI | KFARWI | KHTML/ig.test(userAgent)){
         return location.href = `/`;
     }
     return true;
