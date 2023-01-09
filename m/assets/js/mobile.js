@@ -617,8 +617,12 @@ window.onload = function(){
     themeButton.className = currentStatus === `enabled` ? `fas fa-sun` : `fas fa-moon`;
     helpSection.innerHTML = currentStatus === `enabled` ? helpSection.innerHTML.replace(`fas fa-moon`, `fas fa-sun`) : helpSection.innerHTML.replace(`fas fa-sun`, `fas fa-moon`);
     helpSection.innerHTML = currentStatus === `enabled` ? helpSection.innerHTML.replace(`dark to light`, `light to dark`) : helpSection.innerHTML.replace(`light to dark`, `dark to light`);
-    reorderSectionPage.innerHTML = allSections && reorderSectionPage.innerHTML.replace(`XYZ`, JSON.parse(localStorage.allSections).length);
+    reorderSectionPage.innerHTML = allSections && reorderSectionPage.innerHTML.replace(`XYZ`, JSON.parse(allSections).length);
     version.innerHTML = version.innerHTML.replace(`Unknown`, versionText);
     version.style.textAlign = `center`;
     copyrightSection.innerHTML = copyrightSection.innerHTML.replace(`YEARS`, `&copy; 2020 ~ ${new Date().getFullYear()}`);
 }
+
+addEventListener("error", (event) => {
+    alert(event.message);
+});

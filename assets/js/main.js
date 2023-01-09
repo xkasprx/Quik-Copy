@@ -694,20 +694,22 @@ function toggleTheme(){
 window.onload = function(){
     pageContainer.style.display = `block`;
     unsupported.style.display = `none`;
-    this.restyleElements();
-    this.isMobile();
+    restyleElements();
+    isMobile();
 
-    if(localStorage.allSections && localStorage.allSections != `[]`){
-        this.loadSections();
-        this.loadSideNav();
+    let allSections = localStorage.allSections;
+
+    if(allSections && allSections != `[]`){
+        loadSections();
+        loadSideNav();
     }else{
-        localStorage.allSections = `[]`;
+        allSections = `[]`;
         midEmpty.style.visibility = `visible`;
         favNavEmpty.style.visibility = `visible`;
     }
 
     if(localStorage.favoriteButtons && localStorage.favoriteButtons != `[]`){
-        this.loadFavNav();
+        loadFavNav();
     }else{
         localStorage.favoriteButtons = `[]`;
         favNavEmpty.style.visibility = `visible`;
@@ -722,13 +724,13 @@ window.onload = function(){
 
     currentStatus === `enabled` ? enableLightMode() : localStorage.lightMode = `disabled`;
     themeButton.className = currentStatus === `enabled` ? `fas fa-sun` : `fas fa-moon`;
-    reorderSectionsDialog.innerHTML = reorderSectionsDialog.innerHTML.replace(`XYZ`, JSON.parse(localStorage.allSections).length);
+    reorderSectionsDialog.innerHTML = allSections && reorderSectionsDialog.innerHTML.replace(`XYZ`, JSON.parse(allSections).length);
     version.innerText = version.innerText.replace(`Unknown`, versionText);
     copyright.innerHTML = copyright.innerHTML.replace(`YEARS`, `&copy; 2020 ~ ${new Date().getFullYear()}`);
 };
 
 window.onresize = function(){
-    this.restyleElements();
+    restyleElements();
 };
 
 function isMobile(){
