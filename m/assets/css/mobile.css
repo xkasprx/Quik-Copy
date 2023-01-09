@@ -253,7 +253,9 @@ select{
 }
 
 #links{
+	display: inline-flex;
 	text-align: center;
+	vertical-align: middle;
 }
 
 #listButton{
