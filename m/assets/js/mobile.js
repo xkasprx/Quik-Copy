@@ -622,7 +622,3 @@ window.onload = function(){
     version.style.textAlign = `center`;
     copyrightSection.innerHTML = copyrightSection.innerHTML.replace(`YEARS`, `&copy; 2020 ~ ${new Date().getFullYear()}`);
 }
-
-addEventListener("error", (event) => {
-    alert(event.message);
-});
