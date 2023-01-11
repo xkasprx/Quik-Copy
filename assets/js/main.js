@@ -1,4 +1,4 @@
-let versionText = `3.4.2`;
+let versionText = `3.4.4`;
 let activeButtonID, activeSectionID, newButtonName, newButtonValue, oldButtonName, oldButtonValue;
 
 let body = document.body;
@@ -695,10 +695,11 @@ window.onload = function(){
     pageContainer.style.display = `block`;
     unsupported.style.display = `none`;
     restyleElements();
+    isMobile();
 
     let allSections = localStorage.allSections;
 
-    if(allSections && allSections != `[]`){
+    if(allSections && allSections !== `[]`){
         loadSections();
         loadSideNav();
     }else{
@@ -714,7 +715,6 @@ window.onload = function(){
         favNavEmpty.style.visibility = `visible`;
     }
     
-    isMobile();
 
     if(!instructions){
         showHelp();

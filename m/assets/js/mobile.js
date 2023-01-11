@@ -1,4 +1,4 @@
-let versionText = `3.4.3`;
+let versionText = `3.4.4`;
 let activeButtonID, activeSectionID, newButtonName, newButtonValue, oldButtonName, oldButtonValue;
 
 let body = document.body;
@@ -362,7 +362,8 @@ function isMobile(){
 function loadButtons(){
     let allSections = JSON.parse(localStorage.allSections);
 
-    closeDialog()
+
+    closeDialog();
 
     while(buttonsPage.firstChild){
         buttonsPage.removeChild(buttonsPage.firstChild);
@@ -606,12 +607,17 @@ window.addEventListener(`orientationchange`, function(){
 window.onload = function(){
     unsupported.style.display = `none`;
     pageContainer.style.display = `block`;
-    loadButtons();
-    isMobile();
+    let allSections = localStorage.allSections;
     closeDialog();
+    isMobile();
+
+    if(allSections && allSections !== `[]`){
+        loadButtons();
+    }else{
+        allSections = `[]`;
+    }
 
     let currentStatus = localStorage.lightMode;
-    let allSections = localStorage.allSections;
 
     currentStatus === `enabled` ? enableLightMode() : localStorage.lightMode = `disabled`;
     themeButton.className = currentStatus === `enabled` ? `fas fa-sun` : `fas fa-moon`;
