@@ -695,7 +695,6 @@ window.onload = function(){
     pageContainer.style.display = `block`;
     unsupported.style.display = `none`;
     restyleElements();
-    isMobile();
 
     let allSections = localStorage.allSections;
 
@@ -714,6 +713,8 @@ window.onload = function(){
         localStorage.favoriteButtons = `[]`;
         favNavEmpty.style.visibility = `visible`;
     }
+    
+    isMobile();
 
     if(!instructions){
         showHelp();

@@ -606,8 +606,8 @@ window.addEventListener(`orientationchange`, function(){
 window.onload = function(){
     unsupported.style.display = `none`;
     pageContainer.style.display = `block`;
-    isMobile();
     loadButtons();
+    isMobile();
     closeDialog();
 
     let currentStatus = localStorage.lightMode;
