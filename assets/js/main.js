@@ -1,7 +1,8 @@
-let versionText = `3.4.4`;
+let versionText = `3.4.2`;
 let activeButtonID, activeSectionID, newButtonName, newButtonValue, oldButtonName, oldButtonValue;
 
 let body = document.body;
+let userAgent = navigator.userAgent;
 
 let lightMode = localStorage.getItem(`lightMode`);
 let instructions = localStorage.getItem(`instructions`);
@@ -714,7 +715,6 @@ window.onload = function(){
         localStorage.favoriteButtons = `[]`;
         favNavEmpty.style.visibility = `visible`;
     }
-    
 
     if(!instructions){
         showHelp();
@@ -735,9 +735,7 @@ window.onresize = function(){
 };
 
 function isMobile(){
-    let userAgent = navigator.userAgent;
-
-    if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox/ig.test(userAgent)){
+    if(/Android | webOS | iPhone | iPad | iPod | BlackBerry | IEMobile | Opera Mini | PlayBook | BB10 | Mobile| Xbox | Linux | Kindle | Silk | KFTT | KFOT | KFJWA | KFJWI | KFSOWI | KFTHWA | KFTHWI | KFAPWA | KFAPWI | KFASWI | KFTBWI | KFMEWI | KFFOWI | KFSAWA | KFSAWI | KFARWI | KHTML/ig.test(userAgent)){
         return location.href = `/m`
     }
     return false;

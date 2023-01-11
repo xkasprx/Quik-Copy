@@ -362,7 +362,6 @@ function isMobile(){
 function loadButtons(){
     let allSections = JSON.parse(localStorage.allSections);
 
-
     closeDialog();
 
     while(buttonsPage.firstChild){
@@ -605,11 +604,11 @@ window.addEventListener(`orientationchange`, function(){
 });
 
 window.onload = function(){
-    unsupported.style.display = `none`;
-    pageContainer.style.display = `block`;
-    let allSections = localStorage.allSections;
-    closeDialog();
     isMobile();
+    let allSections = localStorage.allSections;
+    pageContainer.style.display = `block`;
+    unsupported.style.display = `none`;
+    closeDialog();
 
     if(allSections && allSections !== `[]`){
         loadButtons();
